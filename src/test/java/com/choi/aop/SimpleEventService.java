@@ -3,7 +3,7 @@ package com.choi.aop;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SimpleEventService implements EventService{
+public class SimpleEventService implements EventService {
 
     @Override
     @PerfLogging
