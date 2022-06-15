@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    url: jdbc:tc:postgresql:///studytestr
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+#    url: jdbc:postgresql://localhost:15432/studytest
+#    username: studytest
+#    password: studytest
