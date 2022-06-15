@@ -5,8 +5,5 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   datasource:
-    url: jdbc:tc:postgresql:///studytestr
+    url: jdbc:tc:postgresql:///studytest
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
-#    url: jdbc:postgresql://localhost:15432/studytest
-#    username: studytest
-#    password: studytest
