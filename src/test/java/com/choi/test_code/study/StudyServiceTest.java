@@ -3,6 +3,8 @@ package com.choi.test_code.study;
 import com.choi.test_code.domain.Member;
 import com.choi.test_code.domain.Study;
 import com.choi.test_code.member.MemberService;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,10 +14,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
+import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.utility.DockerImageName;
 
 import java.util.Optional;
 
@@ -28,15 +31,29 @@ import static org.mockito.Mockito.times;
 @ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")
 @Testcontainers
+@Slf4j
 class StudyServiceTest {
 
     @Container
-    static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer()
-            .withDatabaseName("studytest");
+    static GenericContainer postgreSQLContainer = new GenericContainer("postgres")
+            .withExposedPorts(5432)
+            .withEnv("POSTGRES_HOST_AUTH_METHOD", "trust")
+            .withEnv("POSTGRES_DB", "studytest")
+            .waitingFor(Wait.forListeningPort());
 
     @BeforeEach
     void beforeEach() {
+        System.out.println("******************");
+        System.out.println(postgreSQLContainer.getMappedPort(5432));
+        System.out.println(postgreSQLContainer.getLogs());
+        System.out.println("******************");
         studyRepository.deleteAll();
+    }
+
+    @BeforeAll
+    static void beforeAll() {
+        Slf4jLogConsumer logConsumer = new Slf4jLogConsumer(log);
+        postgreSQLContainer.followOutput(logConsumer);
     }
 
     @Mock MemberService memberService;

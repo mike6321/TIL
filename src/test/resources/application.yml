@@ -8,5 +8,5 @@ spring:
     url: jdbc:tc:postgresql:///studytest
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
 #    url: jdbc:postgresql://localhost:15432/studytest
-    username: studytest
-    password: studytest
+#    username: studytest
+#    password: studytest
