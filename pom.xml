@@ -20,6 +20,7 @@
         <module>aop</module>
         <module>java</module>
         <module>security</module>
+        <module>spring</module>
     </modules>
 
     <properties>
