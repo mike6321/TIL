@@ -7,7 +7,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("scopeAppRunner")
 @RequiredArgsConstructor
 @Slf4j
 public class AppRunner implements ApplicationRunner {
