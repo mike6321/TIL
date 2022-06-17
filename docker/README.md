@@ -40,10 +40,11 @@ docker run --rm -p 8080:8080 docker_project
 
 # ETC
 
-## DIVE 설치
+## DIVE 설치 및 확인
 
 ```shell
 brew install dive
+dive [project_name]
 ```
 
 ```shell
