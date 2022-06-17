@@ -51,3 +51,60 @@ dive [project_name]
 jar -xf [project_name].jar
 ```
 
+## Jar 컴파일
+
+```shell
+mkdir demo
+```
+
+```shell
+cp ./docker-0.0.1-SNAPSHOT.jar ./demo
+```
+
+```shell
+jar -xf [project_name].jar
+```
+
+## 계층형 컴파일 설정
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <layers>
+                    <enabled>true</enabled>
+                </layers>
+                <excludes>
+                    <exclude>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                    </exclude>
+                </excludes>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+```shell
+ java -Djarmode=layertools -jar target/[jar_file_name].jar list
+```
+
+```dockerfile
+FROM openjdk:11.0.8-jdk-slim AS builder
+WORKDIR source
+ARG JAR_FILE=target/docker*.jar
+COPY ${JAR_FILE} application.jar
+RUN  java -Djarmode=layertools -jar application.jar extract
+
+FROM openjdk:11.0.8-jre-slim
+WORKDIR application
+COPY --from=builder source/dependencies ./
+COPY --from=builder source/spring-boot-loaderapplication ./
+COPY --from=builder source/snapshot-dependencies ./
+COPY --from=builder source/application ./
+ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+```
