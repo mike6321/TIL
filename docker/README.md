@@ -65,7 +65,7 @@ cp ./docker-0.0.1-SNAPSHOT.jar ./demo
 jar -xf [project_name].jar
 ```
 
-## 계층형 컴파일 설정
+## 계층형 컴파일 (1)
 
 ```xml
 <build>
@@ -108,3 +108,10 @@ COPY --from=builder source/snapshot-dependencies ./
 COPY --from=builder source/application ./
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
 ```
+
+## 계층형 컴파일 (2) - Dockerfile 없이
+
+```shell
+mvn spring-boot:build-image
+```
+
