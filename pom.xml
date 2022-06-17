@@ -21,6 +21,7 @@
         <module>java</module>
         <module>security</module>
         <module>spring</module>
+        <module>docker</module>
     </modules>
 
     <properties>
