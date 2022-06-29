@@ -5,12 +5,13 @@ import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 
+import javax.persistence.Entity;
+
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
-import static com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.slices;
 
 @AnalyzeClasses(packagesOf = TestCodeApplication.class)
-public class ArchTests {
+public class ArchClassTests {
 
     @ArchTest
     ArchRule controllerClassRule = classes()
@@ -24,35 +25,20 @@ public class ArchTests {
             .haveSimpleNameEndingWith("Repository");
 
     @ArchTest
-    ArchRule domainPackageRule = classes()
+    ArchRule repositoryClassRule = noClasses()
             .that()
-            .resideInAnyPackage("..domain..")
-            .should()
-            .onlyBeAccessed()
-            .byClassesThat()
-            .resideInAnyPackage("..study..", "..member..", "..domain..");
-
-    @ArchTest
-    ArchRule memberPackageRule = noClasses()
-            .that()
-            .resideInAnyPackage("..domain..")
+            .haveSimpleNameEndingWith("Repository")
             .should()
             .accessClassesThat()
-            .resideInAPackage("..member..");
+            .haveSimpleNameEndingWith("Service");
 
     @ArchTest
-    ArchRule studyPackageRule = noClasses()
+    ArchRule studyClassesRule = classes()
             .that()
-            .resideOutsideOfPackage("..study..")
+            .haveSimpleNameEndingWith("Study")
+            .and().areNotEnums()
+            .and().areNotAnnotatedWith(Entity.class)
             .should()
-            .accessClassesThat()
-            .resideInAPackage("..study..");
-
-    @ArchTest
-    ArchRule freeOfCycles = slices()
-            .matching("..testcode.(*)..")
-            .should()
-            .beFreeOfCycles();
-
+            .resideInAnyPackage("..study..");
 
 }
