@@ -21,10 +21,6 @@ public class SecurityConfig {
                 .authenticated();
         httpSecurity.csrf()
                 .disable();
-        httpSecurity.headers()
-                .frameOptions()
-                .disable();
-        httpSecurity.httpBasic();
         httpSecurity.formLogin();
         return httpSecurity.build();
     }
