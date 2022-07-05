@@ -1,4 +1,4 @@
-package com.example.testcode.study;
+package com.example.testcode.study.arch_test;
 
 import com.example.testcode.TestCodeApplication;
 import com.tngtech.archunit.junit.AnalyzeClasses;

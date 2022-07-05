@@ -1,6 +1,7 @@
-package com.example.testcode.study;
+package com.example.testcode.study.arch_test;
 
 import com.example.testcode.domain.Study;
+import com.example.testcode.study.StudyRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -12,7 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DataJpaTest
 class StudyRepositoryTest {
 
-    @Autowired StudyRepository repository;
+    @Autowired
+    StudyRepository repository;
 
     @Test
     void save() {

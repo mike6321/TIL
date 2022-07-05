@@ -1,9 +1,13 @@
-package com.example.testcode.study;
+package com.example.testcode.study.arch_test;
 
 import com.example.testcode.domain.Member;
 import com.example.testcode.domain.Study;
 import com.example.testcode.member.MemberService;
+import com.example.testcode.study.StudyRepository;
+import com.example.testcode.study.StudyService;
+import com.example.testcode.study.StudyStatus;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -88,7 +92,7 @@ class StudyServiceTest {
         studyService.openStudy(study);
 
         // Then
-        assertEquals(StudyStatus.OPENED, study.getStatus());
+        Assertions.assertEquals(StudyStatus.OPENED, study.getStatus());
         assertNotNull(study.getOpenedDateTime());
         then(memberService).should().notify(study);
     }
