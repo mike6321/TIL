@@ -1,4 +1,4 @@
-package com.example.testcode.junit_in_action.step03.production;
+package com.example.testcode.study.junit_in_action.step03.production;
 
 public interface Controller {
 

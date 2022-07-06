@@ -1,6 +1,6 @@
-package com.example.testcode.junit_in_action.step03;
+package com.example.testcode.study.junit_in_action.step03;
 
-import com.example.testcode.junit_in_action.step03.production.DefaultController;
+import com.example.testcode.study.junit_in_action.step03.production.DefaultController;
 import org.junit.Before;
 import org.junit.Test;
 

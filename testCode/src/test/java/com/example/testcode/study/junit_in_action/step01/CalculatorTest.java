@@ -1,4 +1,4 @@
-package com.example.testcode.junit_in_action.step01;
+package com.example.testcode.study.junit_in_action.step01;
 
 /**
  * 1. 단위 테스트는 다른 모든 단위 테스트들과 독립적으로 실행되어야 한다.

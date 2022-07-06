@@ -1,6 +1,6 @@
-package com.example.testcode.junit_in_action.step02;
+package com.example.testcode.study.junit_in_action.step02;
 
-import com.example.testcode.junit_in_action.step01.Calculator;
+import com.example.testcode.study.junit_in_action.step01.Calculator;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
