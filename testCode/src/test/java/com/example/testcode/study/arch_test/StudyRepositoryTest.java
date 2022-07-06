@@ -2,7 +2,6 @@ package com.example.testcode.study.arch_test;
 
 import com.example.testcode.domain.Study;
 import com.example.testcode.study.StudyRepository;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
@@ -16,7 +15,7 @@ class StudyRepositoryTest {
     @Autowired
     StudyRepository repository;
 
-    @Test
+//    @Test
     void save() {
         repository.deleteAll();
         Study study = new Study(10, "Java");

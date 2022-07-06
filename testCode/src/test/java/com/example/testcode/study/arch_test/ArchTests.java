@@ -12,7 +12,7 @@ import static com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.sli
 @AnalyzeClasses(packagesOf = TestCodeApplication.class)
 public class ArchTests {
 
-    @ArchTest
+//    @ArchTest
     ArchRule controllerClassRule = classes()
             .that()
             .haveSimpleNameEndingWith("Controller")
@@ -40,7 +40,7 @@ public class ArchTests {
             .accessClassesThat()
             .resideInAPackage("..member..");
 
-    @ArchTest
+//    @ArchTest
     ArchRule studyPackageRule = noClasses()
             .that()
             .resideOutsideOfPackage("..study..")
@@ -48,7 +48,7 @@ public class ArchTests {
             .accessClassesThat()
             .resideInAPackage("..study..");
 
-    @ArchTest
+//    @ArchTest
     ArchRule freeOfCycles = slices()
             .matching("..testcode.(*)..")
             .should()
