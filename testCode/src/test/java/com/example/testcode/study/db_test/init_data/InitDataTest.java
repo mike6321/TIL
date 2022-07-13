@@ -36,4 +36,18 @@ public class InitDataTest {
                 .orElseThrow(() -> new EntityNotFoundException("Member 데이터가 존재하지 않습니다.")));
     }
 
+    @DisplayName("auto flush 인지 확인")
+    @Test
+    void auto_flush_test() {
+        Member member = new Member();
+        member.setEmail("test1@test.com");
+        Member savedMember = memberRepository.save(member);
+        Long id = savedMember.getId();
+        System.out.println("id = " + id);
+
+        Member findMember = memberRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+        assertNotNull(findMember);
+    }
+
 }
