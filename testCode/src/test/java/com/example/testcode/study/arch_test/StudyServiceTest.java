@@ -21,6 +21,7 @@ import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.testcontainers.containers.DockerComposeContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -39,6 +40,7 @@ import static org.mockito.Mockito.times;
 @Testcontainers
 @Slf4j
 @ContextConfiguration(initializers = StudyServiceTest.ContainerPropertyInitializer.class)
+@TestPropertySource("classpath:application-docker-test.yml")
 class StudyServiceTest {
 
     @Mock
