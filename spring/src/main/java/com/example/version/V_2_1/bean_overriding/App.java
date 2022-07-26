@@ -1,4 +1,4 @@
-package com.example.version.V_2_1;
+package com.example.version.V_2_1.bean_overriding;
 
 import com.example.demofamilymanprep.FamilyMan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class BeanOverriding {
+public class App {
 
     public static void main(String[] args) {
-        SpringApplication.run(BeanOverriding.class, args);
+        SpringApplication.run(App.class, args);
     }
 
     @Bean
