@@ -47,6 +47,8 @@ public class Example08 {
  *                  14:14:11.892 [Thread-2] DEBUG com.example.java.multi_thread.util.ThreadUtil - [run start] - Thread-0 : TIMED_WAITING
      *              >>>>>>>>>>>>>>>>>>>>>>>>>>>> run start (3) >>>>>>>>>>>>>>>>>>>>>>>>>>>>
      * Total = 3
+     *
+     * 만약 다른 결과가 나왔다면 각각의 쓰레드가 동시에 globalCounter 참조하였기 때문이다.
      * */
     private static int globalCounter = 0; // heap memory
 
