@@ -13,9 +13,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.UnexpectedRollbackException;
 import org.springframework.transaction.interceptor.DefaultTransactionAttribute;
 
 import javax.sql.DataSource;
+
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @Slf4j
 @SpringBootTest
@@ -107,6 +110,24 @@ public class BasicTxTest {
         innerTransaction();
         log.info("외부 트랜잭션 커밋");
         transactionManager.rollback(outerTx);
+    }
+
+    @Order(7)
+    @DisplayName("스프링 트랜잭션 전파5 - 내부 롤백")
+    @Test
+    void inner_rollback() {
+        log.info("외부 트랜잭션 시작");
+        TransactionStatus outerTx = transactionManager.getTransaction(new DefaultTransactionAttribute());
+        log.info("outerTx.isNewTransaction = {}", outerTx.isNewTransaction());
+
+        log.info("내부 트랜잭션 시작");
+        TransactionStatus innerTx = transactionManager.getTransaction(new DefaultTransactionAttribute());
+        log.info("내부 트랜잭션 롤백");
+        transactionManager.rollback(innerTx); // marked as rollback-only
+
+        log.info("외부 트랜잭션 커밋");
+        assertThatThrownBy(() -> transactionManager.commit(outerTx)).isInstanceOf(UnexpectedRollbackException.class);
+        assertThatThrownBy(() -> transactionManager.commit(outerTx)).hasMessage("Transaction is already completed - do not call commit or rollback more than once per transaction");
     }
 
     private void innerTransaction() {
