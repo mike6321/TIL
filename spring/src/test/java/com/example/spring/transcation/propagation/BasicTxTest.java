@@ -1,7 +1,11 @@
 package com.example.spring.transcation.propagation;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -15,6 +19,7 @@ import javax.sql.DataSource;
 
 @Slf4j
 @SpringBootTest
+@TestMethodOrder(value = OrderAnnotation.class)
 public class BasicTxTest {
 
     @Autowired
@@ -28,6 +33,8 @@ public class BasicTxTest {
         }
     }
 
+    @Order(1)
+    @DisplayName("스프링 트랜잭션 전파1 - 커밋")
     @Test
     void commit() {
         log.info("트랜잭션 시작");
@@ -37,6 +44,8 @@ public class BasicTxTest {
         log.info("트랜잭션 커밋 완료");
     }
 
+    @Order(2)
+    @DisplayName("스프링 트랜잭션 전파1 - 롤백")
     @Test
     void rollback() {
         log.info("트랜잭션 시작");
@@ -46,6 +55,8 @@ public class BasicTxTest {
         log.info("트랜잭션 롤백 완료");
     }
 
+    @Order(3)
+    @DisplayName("스프링 트랜잭션 전파2 - 트랜잭션 두 번 사용 (커밋)")
     @Test
     void double_commit() {
         log.info("트랜잭션1 시작");
@@ -59,6 +70,8 @@ public class BasicTxTest {
         transactionManager.commit(tx2);
     }
 
+    @Order(4)
+    @DisplayName("스프링 트랜잭션 전파2 - 트랜잭션 두 번 사용 (롤백)")
     @Test
     void double_commit_rollback() {
         log.info("트랜잭션1 시작");
@@ -72,6 +85,8 @@ public class BasicTxTest {
         transactionManager.rollback(tx2);
     }
 
+    @Order(5)
+    @DisplayName("스프링 트랜잭션 전파4 - 전파 예제")
     @Test
     void inner_commit() {
         log.info("외부 트랜잭션 시작");
@@ -82,6 +97,8 @@ public class BasicTxTest {
         transactionManager.commit(outerTx);
     }
 
+    @Order(6)
+    @DisplayName("스프링 트랜잭션 전파5 - 외부 롤백")
     @Test
     void outer_rollback() {
         log.info("외부 트랜잭션 시작");
