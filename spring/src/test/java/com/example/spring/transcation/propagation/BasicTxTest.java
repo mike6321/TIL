@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.UnexpectedRollbackException;
 import org.springframework.transaction.interceptor.DefaultTransactionAttribute;
@@ -113,7 +114,7 @@ public class BasicTxTest {
     }
 
     @Order(7)
-    @DisplayName("스프링 트랜잭션 전파5 - 내부 롤백")
+    @DisplayName("스프링 트랜잭션 전파6 - 내부 롤백")
     @Test
     void inner_rollback() {
         log.info("외부 트랜잭션 시작");
@@ -128,6 +129,30 @@ public class BasicTxTest {
         log.info("외부 트랜잭션 커밋");
         assertThatThrownBy(() -> transactionManager.commit(outerTx)).isInstanceOf(UnexpectedRollbackException.class);
         assertThatThrownBy(() -> transactionManager.commit(outerTx)).hasMessage("Transaction is already completed - do not call commit or rollback more than once per transaction");
+    }
+
+    @Order(8)
+    @DisplayName("스프링 트랜잭션 전파7 - REQUIRES_NEW")
+    @Test
+    void inner_rollback_required_new() {
+        log.info("외부 트랜잭션 시작");
+        TransactionStatus outerTx = transactionManager.getTransaction(new DefaultTransactionAttribute());
+        log.info("outerTx.isNewTransaction = {}", outerTx.isNewTransaction());
+
+        innerTransactionWithRequiredNew();
+
+        log.info("외부 트랜잭션 커밋");
+        transactionManager.commit(outerTx);
+    }
+
+    private void innerTransactionWithRequiredNew() {
+        log.info("내부 트랜잭션 시작");
+        DefaultTransactionAttribute definition = new DefaultTransactionAttribute();
+        definition.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
+        TransactionStatus innerTx = transactionManager.getTransaction(definition);
+        log.info("innerTx.isNewTransaction = {}", innerTx.isNewTransaction());
+        log.info("내부 트랜잭션 롤백");
+        transactionManager.rollback(innerTx); // rollback
     }
 
     private void innerTransaction() {
