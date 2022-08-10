@@ -16,7 +16,17 @@ public class LogRepository {
     private final EntityManager entityManager;
 
     @Transactional
-    public void save(Log logMessage) {
+    public void saveV1(Log logMessage) {
+        log.info("Log 저장");
+        entityManager.persist(logMessage);
+        if (logMessage.getMessage().contains("로그예외")) {
+            log.info("Log 저장 시 예외 발생");
+            throw new RuntimeException("예외 발생");
+        }
+    }
+
+    @Transactional
+    public void saveV2(Log logMessage) {
         log.info("Log 저장");
         entityManager.persist(logMessage);
         if (logMessage.getMessage().contains("로그예외")) {
@@ -32,5 +42,4 @@ public class LogRepository {
                 .stream()
                 .findAny();
     }
-
 }
