@@ -1,4 +1,4 @@
-package com.example.spring.transcation;
+package com.example.spring.transaction.order;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

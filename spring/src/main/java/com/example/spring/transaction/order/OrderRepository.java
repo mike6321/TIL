@@ -1,4 +1,4 @@
-package com.example.spring.transcation;
+package com.example.spring.transaction.order;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

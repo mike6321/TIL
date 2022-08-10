@@ -1,4 +1,4 @@
-package com.example.spring.transcation.propagation;
+package com.example.spring.transaction.propagation;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;

@@ -1,6 +1,5 @@
-package com.example.spring.transcation.apply;
+package com.example.spring.transaction.apply;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 
 @Slf4j
 @SpringBootTest
-public class InternalCallV2Test {
+public class InternalCallV1Test {
 
     @Autowired
     private CallService callService;
@@ -23,52 +22,41 @@ public class InternalCallV2Test {
     }
 
     @Test
+    void internalCall() {
+        callService.internal();
+    }
+
+    @Test
     void externalCall() {
         callService.external();
     }
 
     @TestConfiguration
-    static class InternalCallV2TestConfig {
+    static class InternalCallV1TestConfig {
 
         @Bean
         public CallService callService() {
-            return new CallService(internalService());
-        }
-
-        @Bean
-        public InternalService internalService() {
-            return new InternalService();
+            return new CallService();
         }
 
     }
 
     @Slf4j
-    @RequiredArgsConstructor
     static class CallService {
-
-        private final InternalService internalService;
 
         public void external() {
             log.info("call external");
-            TxUtils.printTransactionInfo();
-            internalService.internal();
+            printTransactionInfo();
+            internal();
         }
-
-    }
-
-    static class InternalService {
 
         @Transactional
         public void internal() {
             log.info("call internal");
-            TxUtils.printTransactionInfo();
+            printTransactionInfo();
         }
 
-    }
-
-    static class TxUtils {
-
-        public static void printTransactionInfo() {
+        private void printTransactionInfo() {
             boolean transactionActive = TransactionSynchronizationManager.isActualTransactionActive();
             log.info("transaction active = {}", transactionActive);
             boolean currentTransactionReadOnly = TransactionSynchronizationManager.isCurrentTransactionReadOnly();
@@ -76,5 +64,4 @@ public class InternalCallV2Test {
         }
 
     }
-
 }

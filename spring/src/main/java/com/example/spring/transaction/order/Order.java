@@ -1,4 +1,4 @@
-package com.example.spring.transcation;
+package com.example.spring.transaction.order;
 
 import lombok.Getter;
 import lombok.Setter;

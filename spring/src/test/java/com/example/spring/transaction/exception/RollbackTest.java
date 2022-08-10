@@ -1,4 +1,4 @@
-package com.example.spring.transcation.exception;
+package com.example.spring.transaction.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
