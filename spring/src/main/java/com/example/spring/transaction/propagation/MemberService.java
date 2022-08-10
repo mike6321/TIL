@@ -40,7 +40,21 @@ public class MemberService {
         log.info("***** logRepository 호출 종료 *****");
     }
 
+    @Transactional
     public void joinV3(String username) {
+        Member member = new Member(username);
+        Log logMessage = new Log(username);
+
+        log.info("***** memberRepository 호출 시작 *****");
+        memberRepository.saveV3(member);
+        log.info("***** memberRepository 호출 종료 *****");
+
+        log.info("***** logRepository 호출 시작 *****");
+        logRepository.saveV3(logMessage);
+        log.info("***** logRepository 호출 종료 *****");
+    }
+
+    public void joinV4(String username) {
         Member member = new Member(username);
         Log logMessage = new Log(username);
 
