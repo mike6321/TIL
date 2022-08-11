@@ -11,6 +11,7 @@ public class Example02 {
         thread.start();
         thread.join();
         System.out.println("[3] current thread : " + Thread.currentThread().getName());
+        System.out.println("MyThread isAlive : " + thread.isAlive()); // join 이 되면 thread 가 죽는다.
     }
 
 }

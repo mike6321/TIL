@@ -21,7 +21,7 @@ public class Example08 {
      *      14:14:11.887 [main] DEBUG com.example.java.multi_thread.util.ThreadUtil - [after start] - main : RUNNABLE
      *      14:14:11.890 [main] DEBUG com.example.java.multi_thread.util.ThreadUtil - [after start] - Thread-0 : RUNNABLE
      *      >>>>>>>>>>>>>>>>>>>>>>>>>>>> after start (1) >>>>>>>>>>>>>>>>>>>>>>>>>>>>
- *              >>>>>>>>>>>>>>>>>>>>>>>>>>>> after start (2) >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+     *      >>>>>>>>>>>>>>>>>>>>>>>>>>>> after start (2) >>>>>>>>>>>>>>>>>>>>>>>>>>>>
      *      >>>>>>>>>>>>>>>>>>>>>>>>>>>> run start (1) >>>>>>>>>>>>>>>>>>>>>>>>>>>>
      *      14:14:11.887 [Thread-0] DEBUG com.example.java.multi_thread.util.ThreadUtil - [run start] - main : RUNNABLE
      *          14:14:11.891 [main] DEBUG com.example.java.multi_thread.util.ThreadUtil - [after start] - Thread-1 : RUNNABLE
@@ -44,7 +44,7 @@ public class Example08 {
      *              14:14:11.892 [main] DEBUG com.example.java.multi_thread.util.ThreadUtil - [after start] - Thread-0 : TIMED_WAITING
      *              >>>>>>>>>>>>>>>>>>>>>>>>>>>> after start (3) >>>>>>>>>>>>>>>>>>>>>>>>>>>>
      *              14:14:11.892 [Thread-2] DEBUG com.example.java.multi_thread.util.ThreadUtil - [run start] - main : RUNNABLE
- *                  14:14:11.892 [Thread-2] DEBUG com.example.java.multi_thread.util.ThreadUtil - [run start] - Thread-0 : TIMED_WAITING
+     *              14:14:11.892 [Thread-2] DEBUG com.example.java.multi_thread.util.ThreadUtil - [run start] - Thread-0 : TIMED_WAITING
      *              >>>>>>>>>>>>>>>>>>>>>>>>>>>> run start (3) >>>>>>>>>>>>>>>>>>>>>>>>>>>>
      * Total = 3
      *

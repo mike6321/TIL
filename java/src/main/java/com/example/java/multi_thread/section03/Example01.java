@@ -2,6 +2,9 @@ package com.example.java.multi_thread.section03;
 
 import java.util.Set;
 
+/**
+ * Thread Creation
+ * */
 public class Example01 {
 
     public static void main(String[] args) {
@@ -13,21 +16,23 @@ public class Example01 {
                 .forEach(thread -> System.out.println(thread.getName() + " : " + thread.getState()));
     }
     /**
+     * [start]
      * current thread : MyThread
      * Common-Cleaner : TIMED_WAITING
      * Finalizer : WAITING
      * Monitor Ctrl-Break : RUNNABLE
      * Signal Dispatcher : RUNNABLE
-     * MyThread : TERMINATED
+     * Reference Handler : RUNNABLE
      * main : RUNNABLE
-     * Reference Handler : RUNNABLE
+     * MyThread : TERMINATED
      *
+     * [run]
      * current thread : main
-     * Signal Dispatcher : RUNNABLE
      * Common-Cleaner : TIMED_WAITING
-     * Monitor Ctrl-Break : RUNNABLE
-     * Reference Handler : RUNNABLE
      * Finalizer : WAITING
+     * Monitor Ctrl-Break : RUNNABLE
+     * Signal Dispatcher : RUNNABLE
+     * Reference Handler : RUNNABLE
      * main : RUNNABLE
      * */
 
