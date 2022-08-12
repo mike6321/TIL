@@ -1,4 +1,4 @@
-package com.example.java.multi_thread.section02_object_sharing;
+package com.example.java.multi_thread.book.section03_object_sharing;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,7 +21,6 @@ public class NoVisibility {
             while (!ready) {
                 Thread.yield();
             }
-            log.info("{}", number);
         }
     }
 
@@ -29,7 +28,6 @@ public class NoVisibility {
         ReaderThread readerThread = new ReaderThread();
         readerThread.start();
         number = 42;
-        Thread.sleep(60000);
         ready = true;
     }
 

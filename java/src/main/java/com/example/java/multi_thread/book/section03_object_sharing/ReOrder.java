@@ -1,4 +1,4 @@
-package com.example.java.multi_thread.section02_object_sharing;
+package com.example.java.multi_thread.book.section03_object_sharing;
 
 import lombok.extern.slf4j.Slf4j;
 
