@@ -66,7 +66,25 @@ public class MemberService {
         log.info("***** logRepository 호출 시작 *****");
         logRepository.saveV4(logMessage);
         log.info("***** logRepository 호출 종료 *****");
+    }
 
+    @Transactional
+    public void joinV5(String username) {
+        Member member = new Member(username);
+        Log logMessage = new Log(username);
+
+        log.info("***** memberRepository 호출 시작 *****");
+        memberRepository.saveV5(member);
+        log.info("***** memberRepository 호출 종료 *****");
+
+        log.info("***** logRepository 호출 시작 *****");
+        try {
+            logRepository.saveV5(logMessage);
+        } catch (RuntimeException e) {
+            log.info("***** log 저장에 실패하였습니다. log Message = {} *****", logMessage.getMessage());
+            log.info("정상 흐름 반환");
+        }
+        log.info("***** logRepository 호출 종료 *****");
     }
 
 }

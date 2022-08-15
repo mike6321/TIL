@@ -38,6 +38,12 @@ public class MemberRepository {
         entityManager.persist(member);
     }
 
+    @Transactional
+    public void saveV5(Member member) {
+        log.info("Member 저장");
+        entityManager.persist(member);
+    }
+
     public Optional<Member> find(String username) {
         return entityManager.createQuery("select m from Member m where m.username = :username", Member.class)
                 .setParameter("username", username)
