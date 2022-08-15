@@ -142,4 +142,23 @@ class MemberServiceTest {
         assertTrue(logRepository.find(username).isEmpty());
     }
 
+    /**
+     * memberService    @Transaction : ON
+     * memberRepository @Transaction : ON
+     * logRepository    @Transaction : ON (REQUIRES_NEW) Exception
+     * -> 논리 트랜잭션 중 하나라도 롤백 되면 전체 롤백이 발생한다. (롤백 마크 발생)
+     * */
+    @Order(7)
+    @DisplayName("트랜잭션 전파 활용7 - 복구 REQUIRES_NEW")
+    @Test
+    void recoverException_success() {
+        // given
+        String username = "로그예외_recoverException_success";
+        // when
+        memberService.joinV6(username);
+        // then : member 저장, log 롤백
+        assertFalse(memberRepository.find(username).isEmpty());
+        assertTrue(logRepository.find(username).isEmpty());
+    }
+
 }
