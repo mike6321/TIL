@@ -3,6 +3,7 @@ package com.example.spring.transaction.propagation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
@@ -56,6 +57,16 @@ public class LogRepository {
 
     @Transactional
     public void saveV5(Log logMessage) {
+        log.info("Log 저장");
+        entityManager.persist(logMessage);
+        if (logMessage.getMessage().contains("로그예외")) {
+            log.info("Log 저장 시 예외 발생");
+            throw new RuntimeException("예외 발생");
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void saveV6(Log logMessage) {
         log.info("Log 저장");
         entityManager.persist(logMessage);
         if (logMessage.getMessage().contains("로그예외")) {
