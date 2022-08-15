@@ -92,10 +92,31 @@ class MemberServiceTest {
         // given
         String username = "outerTxOn_success";
         // when
-        memberService.joinV2(username);
+        memberService.joinV3(username);
         // then
         assertTrue(memberRepository.find(username).isPresent());
         assertTrue(logRepository.find(username).isPresent());
+    }
+
+    /**
+     * memberService    @Transaction : ON
+     * memberRepository @Transaction : ON
+     * logRepository    @Transaction : ON Exception
+     * */
+    @Order(5)
+    @DisplayName("트랜잭션 전파 활용5 - 전파 롤백")
+    @Test
+    void outerTxOn_fail() {
+        // given
+        String username = "로그예외_outerTxOn_fail";
+        // when
+        assertThrows(
+                RuntimeException.class,
+                () -> memberService.joinV4(username)
+        );
+        // then : 모든 데이터가 RollBack
+        assertTrue(memberRepository.find(username).isEmpty());
+        assertTrue(logRepository.find(username).isEmpty());
     }
 
 }
