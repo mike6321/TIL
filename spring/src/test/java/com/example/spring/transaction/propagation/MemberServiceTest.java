@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.UnexpectedRollbackException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -115,6 +116,28 @@ class MemberServiceTest {
                 () -> memberService.joinV4(username)
         );
         // then : 모든 데이터가 RollBack
+        assertTrue(memberRepository.find(username).isEmpty());
+        assertTrue(logRepository.find(username).isEmpty());
+    }
+
+    /**
+     * memberService    @Transaction : ON
+     * memberRepository @Transaction : ON
+     * logRepository    @Transaction : ON Exception
+     * -> 논리 트랜잭션 중 하나라도 롤백 되면 전체 롤백이 발생한다. (롤백 마크 발생)
+     * */
+    @Order(6)
+    @DisplayName("트랜잭션 전파 활용6 - 복구 REQUIRED")
+    @Test
+    void recoverException_fail() {
+        // given
+        String username = "로그예외_recoverException_fail";
+        // when
+        assertThrows(
+                UnexpectedRollbackException.class,
+                () -> memberService.joinV5(username)
+        );
+        // then : 예외로 잡았음에도 불구하고 롤백 발생
         assertTrue(memberRepository.find(username).isEmpty());
         assertTrue(logRepository.find(username).isEmpty());
     }
