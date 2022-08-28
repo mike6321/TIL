@@ -44,7 +44,6 @@ public class VolatileCachedFactorizer extends GenericServlet implements Servlet 
                 return Arrays.copyOf(lastFactors, lastFactors.length);
             }
         }
-
     }
 
 }
