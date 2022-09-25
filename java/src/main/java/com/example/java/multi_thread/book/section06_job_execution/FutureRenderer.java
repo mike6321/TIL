@@ -11,6 +11,7 @@ public abstract class FutureRenderer {
 
     void renderPage(CharSequence source) {
         final List<ImageInfo> imageInfos = scanForImageInfo(source);
+        // 순차적으로 다운로드
         Callable<List<ImageData>> task =
                 new Callable<List<ImageData>>() {
                     public List<ImageData> call() {
