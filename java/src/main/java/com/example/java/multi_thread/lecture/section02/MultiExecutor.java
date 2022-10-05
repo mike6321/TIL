@@ -23,7 +23,7 @@ public class MultiExecutor {
         for (Thread thread : threads) {
             thread.start();
         }
-        
+
     }
 
 }
