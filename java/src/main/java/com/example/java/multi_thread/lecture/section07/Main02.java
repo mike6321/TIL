@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Reading took 391 ms
+ * 다른 스레드가 쓰기 락을 보유하지 않는 한, 다수의 스레드가 해당 락을 획득할 수 있다.
  * */
 public class Main02 {
 
@@ -30,7 +31,7 @@ public class Main02 {
             }
         });
 
-        writerThread.setDaemon(true);
+//        writerThread.setDaemon(true);
         writerThread.start();
 
         int numberOfReaderThreads = 7;
@@ -44,7 +45,7 @@ public class Main02 {
                 }
             });
 
-            reader.setDaemon(true);
+//            reader.setDaemon(true);
             readerThreads.add(reader);
         }
 

@@ -29,7 +29,7 @@ public class Main01 {
             }
         });
 
-        writerThread.setDaemon(true);
+//        writerThread.setDaemon(true);
         writerThread.start();
 
         int numberOfReaderThreads = 7;
@@ -43,7 +43,7 @@ public class Main01 {
                 }
             });
 
-            reader.setDaemon(true);
+//            reader.setDaemon(true);
             readerThreads.add(reader);
         }
 
