@@ -31,11 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-concurrency-issue/.mvn/wrapper/maven-wrapper.jar
-
-concurrency-issue/.mvn/wrapper/maven-wrapper.properties
-
-concurrency-issue/mvnw.cmd
-
-concurrency-issue/mvnw

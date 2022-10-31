@@ -23,6 +23,7 @@
         <module>spring</module>
         <module>docker</module>
         <module>jpa</module>
+        <module>concurrency-issue</module>
     </modules>
 
     <properties>

@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/concurrency_issue
+    username: root
+    password: Rownsdn91@
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true 
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          desciptor:
+            sql:
+              BasicBinder: TRACE
