@@ -14,3 +14,11 @@ docker run --name myredis -d -p 6379:6379 redis
 docker exec -it [CONTAINER_ID] redis-cli
 ```
 
+```sh
+subscribe ch1
+```
+
+```sh
+publish ch1 hello
+```
+
