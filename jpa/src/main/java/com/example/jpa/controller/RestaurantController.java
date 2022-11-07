@@ -40,6 +40,9 @@ public class RestaurantController {
     }
 
     @GetMapping("review/{id}")
+//    public Restaurant getAllInformation(@PathVariable Long id) {
+//        return reviewService.getReview(id);
+//    }
     public ReviewResponse getAllInformation(@PathVariable Long id) {
         return reviewService.getReview(id);
     }

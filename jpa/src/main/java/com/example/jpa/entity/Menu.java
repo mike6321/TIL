@@ -25,6 +25,15 @@ public class Menu {
     @Column(name = "price")
     private Long price;
 
+    @Column(name = "business_proprietor")
+    private String businessProprietor;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "telephone")
+    private String telephone;
+
     public static Menu of(MenuDto menuDto) {
         return Menu.builder()
                 .name(menuDto.getName())

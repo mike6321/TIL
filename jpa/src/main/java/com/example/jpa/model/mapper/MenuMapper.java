@@ -1,10 +1,12 @@
 package com.example.jpa.model.mapper;
 
+import com.example.jpa.entity.Menu;
 import com.example.jpa.entity.Restaurant;
 import com.example.jpa.model.dto.response.MenuResponse;
 import com.example.jpa.model.dto.response.MenuResponseDto;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MenuMapper {
@@ -18,7 +20,8 @@ public class MenuMapper {
     }
 
     public static List<MenuResponseDto> convertMenuDto(Restaurant restaurant) {
-        return restaurant.getMenus()
+        Set<Menu> menus = restaurant.getMenus();
+        return menus
                 .stream()
                 .map(menu -> MenuResponseDto.builder()
                         .name(menu.getName())

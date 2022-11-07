@@ -1,14 +1,17 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/jpa_test?useUnicode=true&characterEncoding=utf8
-    username: root
-    password: Rownsdn91@
   jpa:
     hibernate:
       ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: false
     properties:
       hibernate:
-        format_sql: true
         show_sql: true
+        format_sql: true
     generate-ddl: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/jpa_test?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Rownsdn91@

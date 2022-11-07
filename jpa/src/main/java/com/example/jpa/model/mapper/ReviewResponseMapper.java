@@ -12,6 +12,7 @@ public class ReviewResponseMapper {
     public static ReviewResponse of(Restaurant restaurant) {
         Set<Menu> menus = restaurant.getMenus();
         RestaurantMoreInformation restaurantMoreInformation = restaurant.getRestaurantMoreInformation();
+        String address = restaurantMoreInformation.getAddress();
 
         return ReviewResponse.builder()
                 .id(restaurant.getId())
