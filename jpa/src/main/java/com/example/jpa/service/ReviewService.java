@@ -35,11 +35,4 @@ public class ReviewService {
         return ReviewResponseMapper.of(restaurant);
     }
 
-//    public Restaurant getReview(Long id) {
-//        Restaurant restaurant = restaurantRepository.findById(id)
-//                .orElseThrow();
-//        RestaurantMoreInformation restaurantMoreInformation = restaurant.getRestaurantMoreInformation();
-//        return restaurant;
-//    }
-
 }
