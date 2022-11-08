@@ -15,3 +15,10 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: Rownsdn91@
+logging:
+  level:
+    root: DEBUG
+    org:
+      springframework:
+        transaction:
+          interceptor: TRACE

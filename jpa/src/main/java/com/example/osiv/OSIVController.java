@@ -3,10 +3,9 @@ package com.example.osiv;
 import com.example.osiv.dto.MemberRequest;
 import com.example.osiv.dto.TeamRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 @RequiredArgsConstructor
 @RestController
@@ -24,6 +23,26 @@ public class OSIVController {
     @PostMapping("team")
     public void createTeam(@RequestBody TeamRequest teamRequest) {
         teamService.createTeam(teamRequest);
+    }
+
+    /**
+     * open-in-view: true
+     *  success
+     *
+     * open-in-view: false
+     *  failed to lazily initialize a collection of role: com.example.osiv.Member.teams, could not initialize proxy - no Session
+     * */
+    @GetMapping("team/{id}")
+    public Set<Team> getTeam(@PathVariable Long id) {
+        System.out.println("********************Controller********************");
+        Set<Team> teams = teamService.getTeam(id);
+        teams.forEach(team -> {
+                    String name = team.getName();
+                    System.out.println("name = " + name);
+                });
+        System.out.println("********************Controller********************");
+
+        return teams;
     }
 
 }
