@@ -27,4 +27,7 @@ public class Team {
                 .build();
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }
