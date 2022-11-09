@@ -5,7 +5,7 @@ import com.example.osiv.dto.TeamRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.util.Set;
 
 @RequiredArgsConstructor
@@ -15,7 +15,7 @@ public class OSIVController {
 
     private final MemberService memberService;
     private final TeamService teamService;
-    private final EntityManager entityManager;
+    private final EntityManagerFactory entityManagerFactory;
 
     @PostMapping("member")
     public void createMember(@RequestBody MemberRequest memberRequest) {
@@ -38,10 +38,13 @@ public class OSIVController {
     public Set<Team> getTeam(@PathVariable Long id) {
         System.out.println("********************Controller********************");
         Set<Team> teams = teamService.getTeam(id);
+
         for (Team team : teams) {
             team.setName("change name");
-            entityManager.flush();
+            String name = team.getName();
+            System.out.println("name = " + name);
         }
+//        entityManager.flush();
         System.out.println("********************Controller********************");
 
         return teams;
