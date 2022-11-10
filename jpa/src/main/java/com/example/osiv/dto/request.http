@@ -1,3 +1,27 @@
+POST http://localhost:8080/osiv/member
+Content-Type: application/json
+
+{
+  "name" : "choi"
+}
+
+###
+POST http://localhost:8080/osiv/team
+Content-Type: application/json
+
+{
+  "id" : 1,
+  "teams" : [
+    {
+      "name" : "choi"
+    },
+    {
+      "name" : "kim"
+    }
+  ]
+}
+
+###
 GET http://localhost:8080/osiv/team/1
 ###
 

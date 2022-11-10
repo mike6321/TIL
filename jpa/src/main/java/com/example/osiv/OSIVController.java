@@ -39,11 +39,11 @@ public class OSIVController {
         System.out.println("********************Controller********************");
         Set<Team> teams = teamService.getTeam(id);
 
-        for (Team team : teams) {
-            team.setName("change name");
-            String name = team.getName();
-            System.out.println("name = " + name);
-        }
+//        for (Team team : teams) {
+//            team.setName("change name");
+//            String name = team.getName();
+//            System.out.println("name = " + name);
+//        }
 //        entityManager.flush();
         System.out.println("********************Controller********************");
 
