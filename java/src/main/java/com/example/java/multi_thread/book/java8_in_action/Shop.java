@@ -1,6 +1,9 @@
 package com.example.java.multi_thread.book.java8_in_action;
 
 import java.util.Random;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import static com.example.java.multi_thread.book.java8_in_action.Util.delay;
 
@@ -11,8 +14,23 @@ public class Shop {
 
     public static void main(String[] args) {
         Shop shop = new Shop("junwoo-shop");
-        double product = shop.getPrice("product");
-        System.out.println(product);
+
+//        double shopPriceSync = shop.getPrice("product");
+//        System.out.println(shopPriceSync);
+
+        // 결과를 받을 때까지 Blocking 된 상태
+        Future<Double> shopPriceAsync = shop.getPriceAsync("product");
+        try {
+            System.out.println(shopPriceAsync.get());
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        doSomeThing();
+    }
+
+    private static void doSomeThing() {
+        System.out.println("working...!");
     }
 
     public Shop(String name) {
@@ -27,6 +45,19 @@ public class Shop {
     private double calculatePrice(String product) {
         delay();
         return random.nextDouble() * product.charAt(0) * product.charAt(1);
+    }
+
+    public Future<Double> getPriceAsync(String product) {
+        CompletableFuture<Double> futurePrice = new CompletableFuture<>();
+
+        Thread thread = new Thread(() -> {
+            double price = calculatePrice(product);
+            futurePrice.complete(price);
+        });
+        thread.setName("price-calculate-thread");
+        thread.start();
+
+        return futurePrice;
     }
 
 }
