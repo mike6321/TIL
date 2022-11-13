@@ -12,19 +12,22 @@ public class Shop {
     private final String name;
     private final Random random;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         Shop shop = new Shop("junwoo-shop");
 
 //        double shopPriceSync = shop.getPrice("product");
 //        System.out.println(shopPriceSync);
 
         // 결과를 받을 때까지 Blocking 된 상태
-        Future<Double> shopPriceAsync = shop.getPriceAsync("product");
-        try {
-            System.out.println(shopPriceAsync.get());
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        }
+//        Future<Double> shopPriceAsync = shop.getPriceAsync("product");
+//        try {
+//            System.out.println(shopPriceAsync.get());
+//        } catch (InterruptedException | ExecutionException e) {
+//            e.printStackTrace();
+//        }
+
+        Future<Double> shopPriceSupplierAsync = shop.getPriceSupplierAsync("product");
+        System.out.println(shopPriceSupplierAsync.get());
 
         doSomeThing();
     }
@@ -62,6 +65,10 @@ public class Shop {
         thread.start();
 
         return futurePrice;
+    }
+
+    public Future<Double> getPriceSupplierAsync(String product) {
+        return CompletableFuture.supplyAsync(() -> calculatePrice(product));
     }
 
 }
