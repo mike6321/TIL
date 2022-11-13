@@ -51,8 +51,12 @@ public class Shop {
         CompletableFuture<Double> futurePrice = new CompletableFuture<>();
 
         Thread thread = new Thread(() -> {
-            double price = calculatePrice(product);
-            futurePrice.complete(price);
+            try {
+                double price = calculatePrice(product);
+                futurePrice.complete(price);
+            } catch (Exception e) {
+                futurePrice.completeExceptionally(e);
+            }
         });
         thread.setName("price-calculate-thread");
         thread.start();
