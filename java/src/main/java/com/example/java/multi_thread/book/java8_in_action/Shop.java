@@ -41,6 +41,10 @@ public class Shop {
         this.random = new Random(name.charAt(0) * name.charAt(1) * name.charAt(2));
     }
 
+    public String getName() {
+        return name;
+    }
+
     public double getPrice(String product) {
         return calculatePrice(product);
     }

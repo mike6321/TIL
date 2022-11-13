@@ -11,7 +11,7 @@ public class Util {
     private static final DecimalFormat formatter = new DecimalFormat("#.##", new DecimalFormatSymbols(Locale.US));
 
     public static void delay() {
-        int delay = 5000;
+        int delay = 1000;
         try {
             Thread.sleep(delay);
         } catch (InterruptedException e) {
