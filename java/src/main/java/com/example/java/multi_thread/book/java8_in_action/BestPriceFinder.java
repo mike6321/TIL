@@ -17,4 +17,10 @@ public class BestPriceFinder {
                 .collect(Collectors.toList());
     }
 
+    public List<String> findPricesParallelStream(String product) {
+        return shops.parallelStream()
+                .map(shop -> String.format("%s price is %.2f", shop.getName(), shop.getPrice(product)))
+                .collect(Collectors.toList());
+    }
+
 }
