@@ -8,6 +8,8 @@ public class BestPriceFinderMain {
         sequentialExecute(bestPriceFinder);
         // Done in 1010msecs
         parallelStreamExecute(bestPriceFinder);
+        // Done in 1007msecs
+        completableFutureExecute(bestPriceFinder);
     }
 
     private static void sequentialExecute(BestPriceFinder bestPriceFinder) {
@@ -20,6 +22,13 @@ public class BestPriceFinderMain {
     private static void parallelStreamExecute(BestPriceFinder bestPriceFinder) {
         long start = System.nanoTime();
         bestPriceFinder.findPricesParallelStream("LetsSaveBig");
+        long duration = (System.nanoTime() - start) / 1_000_000;
+        System.out.println("Done in " + duration + "msecs");
+    }
+
+    private static void completableFutureExecute(BestPriceFinder bestPriceFinder) {
+        long start = System.nanoTime();
+        bestPriceFinder.findPricesCompletableFuture("LetsSaveBig");
         long duration = (System.nanoTime() - start) / 1_000_000;
         System.out.println("Done in " + duration + "msecs");
     }
