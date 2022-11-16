@@ -28,7 +28,6 @@ public class TeamService {
         member.createTeam(teams);
     }
 
-    @Transactional
     public Set<Team> getTeam(Long id) {
         Member member = memberRepository.findById(id)
                 .orElseThrow();
