@@ -42,6 +42,7 @@ public class InitTxTest {
         @Transactional
         public void initV1() {
             boolean actualTransactionActive = TransactionSynchronizationManager.isActualTransactionActive();
+            // PostConstruct 이후에 AOP 적용이 되기 때문에 Transaction 적용 X
             log.info("Hello init @PostConstruct tx active = {}", actualTransactionActive);
         }
 

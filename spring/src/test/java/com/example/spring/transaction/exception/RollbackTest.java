@@ -18,18 +18,22 @@ public class RollbackTest {
 
     @Test
     void runtimeException() {
+        // Initiating transaction rollback
         assertThatThrownBy(() -> rollbackService.runtimeException())
                 .isInstanceOf(RuntimeException.class);
     }
 
     @Test
     void checkedException() {
+        // Initiating transaction commit
         assertThatThrownBy(() -> rollbackService.checkedException())
                 .isInstanceOf(MyException.class);
     }
 
     @Test
     void rollbackFor() {
+        // checked exception 임에도 불구하고 rollback
+        // Initiating transaction rollback
         assertThatThrownBy(() -> rollbackService.rollbackFor())
                 .isInstanceOf(MyException.class);
     }
