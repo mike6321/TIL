@@ -50,6 +50,7 @@ public class InternalCallV2Test {
 
         public void external() {
             log.info("call external");
+            log.info("callService class = {}", internalService.getClass()); // Proxy
             TxUtils.printTransactionInfo();
             internalService.internal();
         }
