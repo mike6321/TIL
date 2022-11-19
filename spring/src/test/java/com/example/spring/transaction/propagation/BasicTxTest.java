@@ -93,10 +93,27 @@ public class BasicTxTest {
     @DisplayName("스프링 트랜잭션 전파4 - 전파 예제")
     @Test
     void inner_commit() {
+        /**
+         * auto commit false 설정
+         * -> to manual commit
+         * Participating in existing transaction
+         * -> 햔재 존재하는 트랜잭션에 참여
+         * innerTx.isNewTransaction = false
+         * -> 새로운 트랜션 x
+         *
+         * "내부 트랜잭션에서는 커밋을 진행하지 않는다."
+         *
+         * 트랜잭션 내부에서 트랜잭션이 일어날 경우
+         * 각각의 논리 트랜잭션이 생기고
+         * 전체 트랜잭션을 물리 트랜잭션이라고 한다.
+         * 이때 논리 트랜잭션에서 롤백이 생기면 물리 트랜잭션은 전체 롤백이 된다.
+         * */
         log.info("외부 트랜잭션 시작");
         TransactionStatus outerTx = transactionManager.getTransaction(new DefaultTransactionAttribute());
         log.info("outerTx.isNewTransaction = {}", outerTx.isNewTransaction());
+
         innerTransaction();
+
         log.info("외부 트랜잭션 커밋");
         transactionManager.commit(outerTx);
     }
@@ -121,9 +138,15 @@ public class BasicTxTest {
         TransactionStatus outerTx = transactionManager.getTransaction(new DefaultTransactionAttribute());
         log.info("outerTx.isNewTransaction = {}", outerTx.isNewTransaction());
 
+        // Participating in existing transaction
         log.info("내부 트랜잭션 시작");
         TransactionStatus innerTx = transactionManager.getTransaction(new DefaultTransactionAttribute());
         log.info("내부 트랜잭션 롤백");
+        // Participating transaction failed - marking existing transaction as rollback-only
+        /**
+         * 신규 트랜잭션이 아니기 때문에 물리 트랜잭션에 대해서 롤백 호출을 하지 않는다.
+         * 다만 롤백 마크를 남긴다.
+         */
         transactionManager.rollback(innerTx); // marked as rollback-only
 
         log.info("외부 트랜잭션 커밋");
