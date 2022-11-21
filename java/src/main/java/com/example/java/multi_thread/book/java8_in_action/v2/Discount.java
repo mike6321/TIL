@@ -1,7 +1,7 @@
-package com.example.java.multi_thread.book.java8_in_action.pipeline;
+package com.example.java.multi_thread.book.java8_in_action.v2;
 
-import static com.example.java.multi_thread.book.java8_in_action.Util.delay;
-import static com.example.java.multi_thread.book.java8_in_action.Util.format;
+import static com.example.java.multi_thread.book.java8_in_action.v1.Util.delay;
+import static com.example.java.multi_thread.book.java8_in_action.v1.Util.format;
 
 public class Discount {
 

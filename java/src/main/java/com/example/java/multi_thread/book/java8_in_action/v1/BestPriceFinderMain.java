@@ -1,4 +1,4 @@
-package com.example.java.multi_thread.book.java8_in_action;
+package com.example.java.multi_thread.book.java8_in_action.v1;
 
 public class BestPriceFinderMain {
 

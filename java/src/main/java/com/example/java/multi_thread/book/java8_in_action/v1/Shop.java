@@ -1,11 +1,11 @@
-package com.example.java.multi_thread.book.java8_in_action;
+package com.example.java.multi_thread.book.java8_in_action.v1;
 
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-import static com.example.java.multi_thread.book.java8_in_action.Util.delay;
+import static com.example.java.multi_thread.book.java8_in_action.v1.Util.delay;
 
 public class Shop {
 
