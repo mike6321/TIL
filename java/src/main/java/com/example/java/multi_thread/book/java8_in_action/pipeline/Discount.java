@@ -23,5 +23,5 @@ public class Discount {
         delay();
         return format(price * (100 - code.percentage) / 100);
     }
-    
+
 }
