@@ -19,4 +19,10 @@ public class Util {
         }
     }
 
+    public static double format(double number) {
+        synchronized (formatter) {
+            return new Double(formatter.format(number));
+        }
+    }
+
 }
