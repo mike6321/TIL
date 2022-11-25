@@ -13,6 +13,11 @@ public class BestPriceFinderMain {
          * sequential done in 40340583 msecs
          * */
         execute("sequential", () -> bestPriceFinder.findPricesSequential("IPhone14Pro"));
+        /**
+         * [BestPrice price is 77.81, LetsSaveBig price is 115.67, MyFavoriteShop price is 115.5, BuyItAll price is 112.9, BuyItAll2 price is 112.9]
+         * composed CompletableFuture done in 42197581 msecs
+         * */
+        execute("composed CompletableFuture", () -> bestPriceFinder.findPricesFuture("IPhone14Pro"));
     }
 
     private static void execute(String msg, Supplier<List<String>> s) {
