@@ -42,6 +42,7 @@ public class BestPriceFinder {
                 .collect(Collectors.toList());
     }
 
+    // 비동기 2가 비동기 2에 영향을 받는다.
     private Stream<CompletableFuture<String>> findPricesStream(String product) {
         return shops.stream()
                 /*****************************비동기 1*****************************/
