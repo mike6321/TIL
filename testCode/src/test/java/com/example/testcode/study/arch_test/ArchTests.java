@@ -1,6 +1,6 @@
 package com.example.testcode.study.arch_test;
 
-import com.example.testcode.TestCodeApplication;
+import com.example.testcode.optimize_integration.TestCodeApplication;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
