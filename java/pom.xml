@@ -12,5 +12,10 @@
     <description>java</description>
 
     <dependencies>
+        <dependency>
+            <groupId>com.choi</groupId>
+            <artifactId>magicmoja</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

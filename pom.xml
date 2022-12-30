@@ -24,6 +24,7 @@
         <module>docker</module>
         <module>jpa</module>
         <module>concurrency-issue</module>
+        <module>magicmoja</module>
     </modules>
 
     <properties>
