@@ -1,0 +1,17 @@
+POST http://localhost:8080/menu
+Content-Type: application/json
+
+{
+  "menuType" : "MAIN_DISH"
+}
+
+### MAIN DISH ENUM 01
+
+POST http://localhost:8080/menu
+Content-Type: application/json
+
+{
+  "menuType" : 0
+}
+
+### MAIN DISH ENUM 02
