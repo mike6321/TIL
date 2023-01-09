@@ -25,6 +25,7 @@
         <module>jpa</module>
         <module>concurrency-issue</module>
         <module>magicmoja</module>
+        <module>getting-started-kafka</module>
     </modules>
 
     <properties>
