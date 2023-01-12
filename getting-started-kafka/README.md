@@ -12,6 +12,10 @@ https://kafka.apache.org/downloads
 
 * [kafka_2.12-2.5.0.tgz](https://archive.apache.org/dist/kafka/2.5.0/kafka_2.12-2.5.0.tgz) ([asc](https://archive.apache.org/dist/kafka/2.5.0/kafka_2.12-2.5.0.tgz.asc), [sha512](https://archive.apache.org/dist/kafka/2.5.0/kafka_2.12-2.5.0.tgz.sha512))
 
+------
+
+## 로컬에서 카프카 브로커 실행
+
 주키퍼 실행
 
 ```shell
@@ -35,4 +39,34 @@ bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092
 ```shell
 bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
 ```
+
+------
+
+## kafka-topics.sh
+
+토픽생성
+
+```shell
+ bin/kafka-topics.sh --create --bootstrap-server my-kafka:9092 --topic hello.kafka
+```
+
+토픽확인
+
+```shell
+bin/kafka-topics.sh --bootstrap-server my-kafka:9092 --topic hello.kafka --describe
+```
+
+토픽생성 (설정지정)
+
+```shell
+bin/kafka-topics.sh --create --bootstrap-server my-kafka:9092 --partitions 10 --replication-factor 1 --topic hello.kafka2 --config retention.ms=17280000
+```
+
+토픽의 파티션 개수 변경
+
+```shell
+ bin/kafka-topics.sh --bootstrap-server my-kafka:9092 --topic test --alter --partitions 10
+```
+
+------
 
