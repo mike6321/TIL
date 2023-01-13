@@ -70,3 +70,17 @@ bin/kafka-topics.sh --create --bootstrap-server my-kafka:9092 --partitions 10 --
 
 ------
 
+## kafka-configs.sh
+
+브로커의 토픽 옵션값 변경
+
+```shell
+bin/kafka-configs.sh --bootstrap-server my-kafka:9092 --alter --add-config min.insync.replicas=2 --topic test
+```
+
+브로커의 설정된 값 확인
+
+```shell
+bin/kafka-configs.sh --bootstrap-server my-kafka:9092 --broker 0 --all --describe
+```
+
