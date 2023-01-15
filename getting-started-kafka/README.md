@@ -1,3 +1,5 @@
+
+
 # References
 
 [kafka 조금 아는 척하기 1 (개발자용)](https://www.youtube.com/watch?v=0Ssx7jJJADI&list=PLkAFoI1e9O2OoBU1fmkuENsuRiiOJ4RVv&index=1&t=577s)
@@ -99,4 +101,49 @@ bin/kafka-console-producer.sh --bootstrap-server my-kafka:9092 --topic hello.kaf
 ```shell
 bin/kafka-console-producer.sh --bootstrap-server my-kafka:9092 --topic hello.kafka --property "parse.key=true" --property "key.separator=:"
 ```
+
+------
+
+## kafka-console-consumer.sh
+
+메세지 값 확인
+
+```shell
+bin/kafka-console-consumer.sh \
+> --bootstrap-server my-kafka:9092 \
+> --topic hello.kafka \
+> --from-beginning
+```
+
+메세지 키도 확인
+
+```shell
+bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic hello.kafka --property print.key=true --property key.separator="-" --from-beginning
+```
+
+메세지 키도 확인 (max 갯수 지정)
+
+```shell
+bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic hello.kafka --property print.key=true --property key.separator="-" --from-beginning --max-messages 1
+```
+
+메세지 키도 확인 (partition 지정)
+
+```shell
+bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic hello.kafka --property print.key=true --property key.separator="-" --from-beginning --partition 0
+```
+
+컨슈머 그룹 생성
+
+```shell
+bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic hello.kafka --group hello-group --from-beginning
+```
+
+토픽에 오프셋 생성 확인
+
+```shell
+ bin/kafka-topics.sh --bootstrap-server my-kafka:9092 --list
+```
+
+------
 
