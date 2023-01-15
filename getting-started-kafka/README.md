@@ -84,3 +84,19 @@ bin/kafka-configs.sh --bootstrap-server my-kafka:9092 --alter --add-config min.i
 bin/kafka-configs.sh --bootstrap-server my-kafka:9092 --broker 0 --all --describe
 ```
 
+------
+
+## kafka-console-producer.sh
+
+콘솔 프로듀서 실행
+
+```shell
+bin/kafka-console-producer.sh --bootstrap-server my-kafka:9092 --topic hello.kafka
+```
+
+콘솔 프로듀서 실행 (메세지 키가 포함된 레코드 전송)
+
+```shell
+bin/kafka-console-producer.sh --bootstrap-server my-kafka:9092 --topic hello.kafka --property "parse.key=true" --property "key.separator=:"
+```
+
