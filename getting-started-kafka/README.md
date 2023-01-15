@@ -147,3 +147,33 @@ bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic hello.kaf
 
 ------
 
+## kafka-consumer-groups.sh
+
+컨슈머 그룹 확인
+
+```shell
+bin/kafka-consumer-groups.sh --bootstrap-server my-kafka:9092 --list
+```
+
+컨슈머 그룹 상세 확인
+
+```shell
+bin/kafka-consumer-groups.sh --bootstrap-server my-kafka:9092 --group hello-group --describe
+```
+
+<img width="1000" alt="image" src="https://user-images.githubusercontent.com/33277588/212545524-894b2791-5dda-414e-a9b4-7f86a9aa2800.png">
+
+```shell
+bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic hello.kafka --group hello-group
+```
+
+<img width="1000" alt="image" src="https://user-images.githubusercontent.com/33277588/212545660-48927ccc-166c-4099-94fe-53d6fae125aa.png">
+
+오프셋 리셋
+
+```shell
+ ✘ nhn@junuui-MacBook-Pro-16  ~/IdeaProjects/repository/kafka_2.12-2.5.0  bin/kafka-consumer-groups.sh --bootstrap-server my-kafka:9092 --group hello-group --topic hello.kafka --reset-offsets --to-earliest --execute
+```
+
+------
+
