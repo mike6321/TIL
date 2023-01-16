@@ -177,3 +177,71 @@ bin/kafka-console-consumer.sh --bootstrap-server my-kafka:9092 --topic hello.kaf
 
 ------
 
+## 프로듀서 주요 옵션
+
+**Required**
+
+```shell
+bootstrap.servers
+```
+
+* 프로듀서가 데이터를 전송할 대상 카프카 클러스터에 속한 브로커의 호스트이름:포트 를 1개 이상 작성
+* 2개 이상의 브로커 정보를 입력하여 일부 브로커에 이슈가 발생하더라도 접속하는 데에 이슈가 없도록 설정 가능
+
+```shell
+key.serializer
+```
+
+* 레코드의 메시지 키를 직렬화하는 클래스를 지정
+
+```shell
+value.serializer
+```
+
+* 레코드의 메시지 값을 직렬화하는 클래스를 지정
+
+**selection options**
+
+```shell
+acks
+```
+
+* 프로듀서가 전송한 데이터가 브로커들에 정상적으로 저장되었는지 전송 여부를 확인하는데 사용하는 옵션
+  * 0, -1, 1 (default : 1)
+
+```shell
+linger.ms
+```
+
+* 배치를 전송하기 전까지 기다리는 최소 시간 
+  * default : 0
+
+```shell
+retries
+```
+
+* 브로커로부터 에러를 받고 난 뒤 재전송을 시도하는 횟수
+
+```shell
+max.in.flight.requests.per.connection
+```
+
+* 한 번에 요청하는 최대 커넥션 개수 (default : 50)
+
+```shell
+partitioner.class
+```
+
+* 레코드를 파티션에 전송할 때 적용하는 파티셔너 클래스를 지정 (default : DefaultPartitioner)
+
+```shell
+enable.idempotence
+```
+
+* 멱등성 프로듀서로 동작할지 여부를 설정 (default : false)
+
+```shell
+transactionl.id
+```
+
+* 프로듀서가 레코드를 전송할 때 트랜잭션 단위로 묶을지 여부를 설정 (default : null)
