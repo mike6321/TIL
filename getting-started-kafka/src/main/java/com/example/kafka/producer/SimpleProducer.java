@@ -1,16 +1,15 @@
-package com.example.kafka;
+package com.example.kafka.producer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
 
 @Slf4j
-public class SimpleProducerWithSyncCallback {
+public class SimpleProducer {
 
     private final static String TOPIC_NAME = "test";
     private final static String BOOTSTRAP_SERVERS = "my-kafka:9092";
@@ -23,16 +22,12 @@ public class SimpleProducerWithSyncCallback {
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(configs);
 
-        ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC_NAME, "Pangyo", "Pangyo");
-        try {
-            RecordMetadata metadata = producer.send(record).get();
-            log.info(metadata.toString());
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-        } finally {
-            producer.flush();
-            producer.close();
-        }
+        String messageValue = "testMessage";
+        ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC_NAME, messageValue);
+        producer.send(record);
+        log.info("{}", record);
+        producer.flush();
+        producer.close();
     }
 
 }
