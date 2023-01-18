@@ -245,3 +245,86 @@ transactionl.id
 ```
 
 * 프로듀서가 레코드를 전송할 때 트랜잭션 단위로 묶을지 여부를 설정 (default : null)
+
+------
+
+## 프로듀서 주요 옵션
+
+**Required**
+
+```shell
+bootstrap.servers
+```
+
+* 프로듀서가 데이터를 전송할 대상 카프카 클러스터에 속한 브로커의 호스트이름:포트 를 1개 이상 작성
+* 2개 이상의 브로커 정보를 입력하여 일부 브로커에 이슈가 발생하더라도 접속하는 데에 이슈가 없도록 설정 가능
+
+```
+key.deserializer
+```
+
+- 레코드의 메시지 키를 역직렬화하는 클래스를 지정
+
+```
+value.deserializer
+```
+
+- 레코드의 메시지 값을 역직렬화하는 클래스를 지정
+
+**selection options**
+
+```shell
+group.id
+```
+
+* 컨슈머 그룹 아이디를 지정
+* subscribe() 로 토픽을 구독하여 사용할 때는 해당 옵션 필수 (default : null)
+
+```shell
+auto.offset.reset
+```
+
+* 컨슈머 오프셋이 없을경우 어느 오프셋부터 읽을지 선택하는 옵션 (default : latest)
+
+```shell
+enable.auto.commit
+```
+
+* 자동 커밋 / 수동 커밋
+
+```shell
+auto.commit.interval.ms
+```
+
+* 자동 커밋일 경우 오프셋 커밋 간격을 지정 (default : 5000ms)
+
+```shell
+max.poll.records
+```
+
+* poll() 메서드를 통해 반환되는 레코드 개수를 지정 (default : 500)
+
+```shell
+session.timeout.ms
+```
+
+* 컨슈머가 브로커와의 연결이 끊기는 최대 시간 (default : 10000ms)
+
+```shell
+heartbeat.interval.ms
+```
+
+* 하트비트를 전송하는 시간 간격 (default : 3000ms)
+
+```shell
+max.poll.interval.ms
+```
+
+* poll() 메서드를 호출하는 간격의 최대시간 (default : 300000ms)
+
+```shell
+isolation.level
+```
+
+* 트랜잭션 프로듀서가 레코드를 트랜잭션 단위로 보낼경우 사용
+
