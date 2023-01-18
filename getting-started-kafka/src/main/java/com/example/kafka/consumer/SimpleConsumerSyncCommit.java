@@ -15,7 +15,7 @@ public class SimpleConsumerSyncCommit extends AbstractConsumer {
     public static void main(String[] args) {
         configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, Boolean.FALSE);
 
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<>(configs);
+        consumer = new KafkaConsumer<>(configs);
         consumer.subscribe(List.of(TOPIC_NAME));
 
         while (true) {

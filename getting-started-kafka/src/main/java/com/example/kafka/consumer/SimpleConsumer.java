@@ -12,7 +12,7 @@ import java.util.List;
 public class SimpleConsumer extends AbstractConsumer {
 
     public static void main(String[] args) {
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<>(configs);
+        consumer = new KafkaConsumer<>(configs);
         consumer.subscribe(List.of(TOPIC_NAME));
 
         while (true) {

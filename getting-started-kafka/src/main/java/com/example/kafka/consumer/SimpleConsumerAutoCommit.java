@@ -16,7 +16,7 @@ public class SimpleConsumerAutoCommit extends AbstractConsumer {
         configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, Boolean.TRUE);
         configs.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, 60000);
 
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<>(configs);
+        consumer = new KafkaConsumer<>(configs);
         consumer.subscribe(List.of(TOPIC_NAME));
 
         while (true) {
