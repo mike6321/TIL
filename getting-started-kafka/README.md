@@ -328,3 +328,7 @@ isolation.level
 
 * 트랜잭션 프로듀서가 레코드를 트랜잭션 단위로 보낼경우 사용
 
+# **Core**
+
+https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
+
