@@ -14,7 +14,7 @@ public class Sender {
 
     public void send(final String payload) {
         log.info("sending payload : {}", payload);
-        kafkaTemplate.send("helloworld", payload);
+        kafkaTemplate.send("topic0", payload);
     }
 
 }

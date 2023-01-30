@@ -14,7 +14,7 @@ public class Application {
 
     @Bean
     public ApplicationRunner runner(Sender sender) {
-        return args -> sender.send("test");
+        return args -> sender.send("hello");
     }
 
 }

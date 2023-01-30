@@ -332,3 +332,6 @@ isolation.level
 
 https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
 
+[Kafka Producer](https://jwdeveloper.notion.site/Kafka-Producer-0010f568611a42a5abaa9cc5bd3b0cd5)
+
+* [KafkaProducer send()](https://jwdeveloper.notion.site/KafkaProducer-send-98bdd0dd3ba648538b181508596b152c)
