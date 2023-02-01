@@ -334,6 +334,8 @@ https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
 
 [Kafka Producer](https://jwdeveloper.notion.site/Kafka-Producer-0010f568611a42a5abaa9cc5bd3b0cd5)
 
+* [Producer 생성](https://jwdeveloper.notion.site/Producer-3312226ab84e497ca5b40b42fc56a76f)
+
 * [KafkaProducer send()](https://jwdeveloper.notion.site/KafkaProducer-send-98bdd0dd3ba648538b181508596b152c)
   * [Partitioning](https://jwdeveloper.notion.site/Partitioning-eeaf35d63eac4751b498375737121c85)
   * [Compression](https://jwdeveloper.notion.site/Compression-786f64131a0645d2b8d7467c04b1239b)
