@@ -341,4 +341,6 @@ https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
   * [Key 값이 있는 경우 Partitioning](https://jwdeveloper.notion.site/Key-Partitioning-1781e83f7ea343e29f6f06ed58e72173)
 * [RecordAccumulator.append()](https://jwdeveloper.notion.site/RecordAccumulator-append-a1b8634e2a5c44d6bee942344d4f8032)
   * [Recorde 사이즈 Validate](https://jwdeveloper.notion.site/Recorde-Validate-454868eabab24cdea4b22eeb3aeb56ab)
+  * [First append](https://jwdeveloper.notion.site/First-append-bc7921e7bc514c058cf381d5f400c3da)
+  * [Retry append](https://jwdeveloper.notion.site/Retry-append-5584fa1babec4abca0970286529fc37a)
 * [Sender Thread](https://jwdeveloper.notion.site/Sender-Thread-e4d75db2c18246be967b2e6be321cb4f)

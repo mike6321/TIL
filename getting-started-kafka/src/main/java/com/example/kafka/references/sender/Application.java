@@ -16,7 +16,7 @@ public class Application {
     public ApplicationRunner runner(Sender sender) {
         return args -> {
             sender.unUsedKeySend("hello");
-            sender.usedKeySend("hello");
+//            sender.usedKeySend("hello");
         };
     }
 
