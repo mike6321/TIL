@@ -335,11 +335,10 @@ https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
 [Kafka Producer](https://jwdeveloper.notion.site/Kafka-Producer-0010f568611a42a5abaa9cc5bd3b0cd5)
 
 * [Producer 생성](https://jwdeveloper.notion.site/Producer-3312226ab84e497ca5b40b42fc56a76f)
-
 * [KafkaProducer send()](https://jwdeveloper.notion.site/KafkaProducer-send-98bdd0dd3ba648538b181508596b152c)
-  * [Partitioning](https://jwdeveloper.notion.site/Partitioning-eeaf35d63eac4751b498375737121c85)
-    * [Key 값이 없는 경우 Partitioning](https://jwdeveloper.notion.site/Key-Partitioning-871a32e4fdd44e64af0df79808150442)
-    * [Key 값이 있는 경우 Partitioning](https://jwdeveloper.notion.site/Key-Partitioning-a11168eba89346f99024858ed2b4e55b)
-  * [Compression](https://jwdeveloper.notion.site/Compression-786f64131a0645d2b8d7467c04b1239b)
+* [Partitioning](https://jwdeveloper.notion.site/Partitioning-873cdf4b1a434444b257b793ca35c495)
+  * [Key 값이 없는 경우 Partitioning](https://jwdeveloper.notion.site/Key-Partitioning-18f6fbb4861041f2b6bee9673d4ab836)
+  * [Key 값이 있는 경우 Partitioning](https://jwdeveloper.notion.site/Key-Partitioning-1781e83f7ea343e29f6f06ed58e72173)
 * [RecordAccumulator.append()](https://jwdeveloper.notion.site/RecordAccumulator-append-a1b8634e2a5c44d6bee942344d4f8032)
+  * [Recorde 사이즈 Validate](https://jwdeveloper.notion.site/Recorde-Validate-454868eabab24cdea4b22eeb3aeb56ab)
 * [Sender Thread](https://jwdeveloper.notion.site/Sender-Thread-e4d75db2c18246be967b2e6be321cb4f)
