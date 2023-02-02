@@ -338,6 +338,8 @@ https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
 
 * [KafkaProducer send()](https://jwdeveloper.notion.site/KafkaProducer-send-98bdd0dd3ba648538b181508596b152c)
   * [Partitioning](https://jwdeveloper.notion.site/Partitioning-eeaf35d63eac4751b498375737121c85)
+    * [Key 값이 없는 경우 Partitioning](https://jwdeveloper.notion.site/Key-Partitioning-871a32e4fdd44e64af0df79808150442)
+    * [Key 값이 있는 경우 Partitioning](https://jwdeveloper.notion.site/Key-Partitioning-a11168eba89346f99024858ed2b4e55b)
   * [Compression](https://jwdeveloper.notion.site/Compression-786f64131a0645d2b8d7467c04b1239b)
 * [RecordAccumulator.append()](https://jwdeveloper.notion.site/RecordAccumulator-append-a1b8634e2a5c44d6bee942344d4f8032)
 * [Sender Thread](https://jwdeveloper.notion.site/Sender-Thread-e4d75db2c18246be967b2e6be321cb4f)

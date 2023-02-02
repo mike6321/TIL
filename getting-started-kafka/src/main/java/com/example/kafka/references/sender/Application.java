@@ -14,7 +14,10 @@ public class Application {
 
     @Bean
     public ApplicationRunner runner(Sender sender) {
-        return args -> sender.send("hello");
+        return args -> {
+            sender.unUsedKeySend("hello");
+            sender.usedKeySend("hello");
+        };
     }
 
 }
