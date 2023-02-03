@@ -1,4 +1,4 @@
-package com.example.kafka.references.sender;
+package com.example.kafka.references.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

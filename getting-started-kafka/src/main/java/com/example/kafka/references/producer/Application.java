@@ -1,4 +1,4 @@
-package com.example.kafka.references.sender;
+package com.example.kafka.references.producer;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
