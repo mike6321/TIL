@@ -1,0 +1,4 @@
+POST http://localhost:1000/send
+Content-Type: application/json
+
+  "test-message"
