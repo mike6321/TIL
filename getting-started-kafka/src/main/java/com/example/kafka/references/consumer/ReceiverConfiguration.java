@@ -28,6 +28,7 @@ public class ReceiverConfiguration {
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "testGroup");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, IntegerDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.HEARTBEAT_INTERVAL_MS_CONFIG, "10000");
         return props;
     }
 

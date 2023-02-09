@@ -344,3 +344,7 @@ https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
   * [First append](https://jwdeveloper.notion.site/First-append-bc7921e7bc514c058cf381d5f400c3da)
   * [Retry append](https://jwdeveloper.notion.site/Retry-append-5584fa1babec4abca0970286529fc37a)
 * [Sender Thread](https://jwdeveloper.notion.site/Sender-Thread-e4d75db2c18246be967b2e6be321cb4f)
+
+[Kafka Consumer](https://jwdeveloper.notion.site/Kafka-Consumer-e3e07ce45e6741d0bde803f05eaf191d)
+
+* [ConsumerNetworkClient](https://jwdeveloper.notion.site/ConsumerNetworkClient-c90ea0a551a6460f88907bf434de6af4)
