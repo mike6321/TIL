@@ -353,3 +353,6 @@ https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
     * [compose](https://jwdeveloper.notion.site/compose-80b1a74d51b940b6a8cb2827396cd52d)
   * 응답 처리
     * [완료한 응답 적재](https://jwdeveloper.notion.site/db13207e79ec440f8a23659c98646212)
+    * [pendingCompletion complete](https://jwdeveloper.notion.site/pendingCompletion-complete-65a7277fce384b83a2992addbdfd3e5d)
+    
+    
