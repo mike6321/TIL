@@ -348,3 +348,8 @@ https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
 [Kafka Consumer](https://jwdeveloper.notion.site/Kafka-Consumer-e3e07ce45e6741d0bde803f05eaf191d)
 
 * [ConsumerNetworkClient](https://jwdeveloper.notion.site/ConsumerNetworkClient-c90ea0a551a6460f88907bf434de6af4)
+  * 요청 전송
+    * [send](https://jwdeveloper.notion.site/send-11e90ca8f1764fa4a358ace8358482f2)
+    * [compose](https://jwdeveloper.notion.site/compose-80b1a74d51b940b6a8cb2827396cd52d)
+  * 응답 처리
+    * [완료한 응답 적재](https://jwdeveloper.notion.site/db13207e79ec440f8a23659c98646212)
