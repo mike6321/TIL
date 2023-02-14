@@ -14,7 +14,10 @@ public class Sender {
 
     public void unUsedKeySend(final String payload) {
         log.info("sending payload : {}", payload);
-        kafkaTemplate.send("topic0", payload);
+        kafkaTemplate.send("topic01", payload);
+        kafkaTemplate.send("topic02", payload);
+
+        kafkaTemplate.send("topic01", payload);
     }
 
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Receiver {
 
-    @KafkaListener(topics = "topic0")
+    @KafkaListener(topics = {"${spring.kafka.topic1}", "${spring.kafka.topic2}"})
     public void listen(String in) {
         log.info("***********************************");
         log.info("{}", in);

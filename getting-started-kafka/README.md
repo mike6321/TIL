@@ -354,5 +354,9 @@ https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
   * 응답 처리
     * [완료한 응답 적재](https://jwdeveloper.notion.site/db13207e79ec440f8a23659c98646212)
     * [pendingCompletion complete](https://jwdeveloper.notion.site/pendingCompletion-complete-65a7277fce384b83a2992addbdfd3e5d)
-    
-    
+
+* [SubscriptionState](https://jwdeveloper.notion.site/SubscriptionState-86d626a043ff4fff82226bd5057ad62a)
+
+  * [assiginment 생성](https://jwdeveloper.notion.site/assiginment-a52d04fc1f59441e99ab423a73d6c8bd)
+
+  
