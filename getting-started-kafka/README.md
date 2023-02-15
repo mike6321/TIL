@@ -359,4 +359,6 @@ https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
 
   * [assiginment 생성](https://jwdeveloper.notion.site/assiginment-a52d04fc1f59441e99ab423a73d6c8bd)
 
-  
+
+* [ConsumerCoordinator](https://jwdeveloper.notion.site/ConsumerCoordinator-7f68d87a06b0410ab89da96aa93eadd9)
+  * [리밸런스](https://jwdeveloper.notion.site/174df32e00cb475e96d73700b74b8a99)
