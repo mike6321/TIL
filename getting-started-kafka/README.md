@@ -362,3 +362,4 @@ https://docs.spring.io/spring-kafka/docs/current/reference/html/#introduction
 
 * [ConsumerCoordinator](https://jwdeveloper.notion.site/ConsumerCoordinator-7f68d87a06b0410ab89da96aa93eadd9)
   * [리밸런스](https://jwdeveloper.notion.site/174df32e00cb475e96d73700b74b8a99)
+  * [JoinGroupRequest](https://jwdeveloper.notion.site/JoinGroupRequest-7ef404a80d5f457cadc19b6b717f6395)
