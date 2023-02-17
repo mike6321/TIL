@@ -18,6 +18,8 @@ public class Sender {
         kafkaTemplate.send("topic02", payload);
 
         kafkaTemplate.send("topic01", payload);
+        kafkaTemplate.send("topic03", payload);
+        kafkaTemplate.send("topic04", payload);
     }
 
 }
