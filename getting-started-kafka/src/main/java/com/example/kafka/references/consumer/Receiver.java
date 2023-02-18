@@ -8,8 +8,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class Receiver {
 
-    @KafkaListener(topics = {"${spring.kafka.topic1}", "${spring.kafka.topic2}"})
-    public void listen(String in) {
+    @KafkaListener(topics = {"${spring.kafka.topic1}", "${spring.kafka.topic2}", "${spring.kafka.topic3}", "${spring.kafka.topic4}"})
+    public void listen01(String in) {
+        log.info("***********************************");
+        log.info("{}", in);
+        log.info("***********************************");
+    }
+
+    @KafkaListener(topics = {"${spring.kafka.topic1}", "${spring.kafka.topic2}", "${spring.kafka.topic3}", "${spring.kafka.topic4}"})
+    public void listen02(String in) {
         log.info("***********************************");
         log.info("{}", in);
         log.info("***********************************");
