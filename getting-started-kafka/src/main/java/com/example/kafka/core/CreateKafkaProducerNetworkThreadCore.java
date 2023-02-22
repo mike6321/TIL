@@ -23,7 +23,6 @@ public class CreateKafkaProducerNetworkThreadCore<K, V> {
     private final Thread ioThread;
     private final ProducerConfig producerConfig;
 
-
     /**
      * @see org.apache.kafka.clients.producer.KafkaProducer#KafkaProducer
      * */
@@ -48,7 +47,7 @@ public class CreateKafkaProducerNetworkThreadCore<K, V> {
      * @see org.apache.kafka.clients.producer.KafkaProducer#newSender
      * */
     Sender newSender(LogContext logContext, KafkaClient kafkaClient, ProducerMetadata metadata) {
-        return new Sender(null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        return new Sender(null, null, null, null, true, 0, (short) 0, 0, null, null, 0, 0, null, null);
     }
 
 }
