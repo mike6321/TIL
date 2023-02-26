@@ -37,6 +37,10 @@ public class RecordAccumulatorCore {
 
     /**
      * @see org.apache.kafka.clients.producer.internals.RecordAccumulator#tryAppend
+     * @see org.apache.kafka.clients.producer.internals.ProducerBatch#tryAppend
+     *
+     * 만약 Dequeue에 토픽의 값이 존재한다면
+     * 배치에 해당 레코드가 들어갈 공간이 존재하면 thunks add
      * */
     private RecordAccumulator.RecordAppendResult tryAppend(long timestamp, byte[] key, byte[] value, Header[] headers,
                                                            Callback callback, Deque<ProducerBatch> deque, long nowMs) {

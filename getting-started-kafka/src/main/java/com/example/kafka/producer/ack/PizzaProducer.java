@@ -25,6 +25,8 @@ public class PizzaProducer {
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         configs.setProperty(ProducerConfig.ACKS_CONFIG, "0");
+//        configs.setProperty(ProducerConfig.LINGER_MS_CONFIG, "50000");
+//        configs.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, "50000");
         //props.setProperty(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, "50000");
 
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(configs);
