@@ -1,4 +1,4 @@
-package com.example.kafka.producer.linger;
+package com.example.kafka.producer.setting.deliver_timeout_ms;
 
 import com.example.kafka.producer.AbstractProducer;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -17,9 +17,11 @@ public class PizzaProducer extends AbstractProducer {
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         /**
-         * Sender Thread는 개별 메세지 배치를 가져가기전 최대 linger.ms 만큼 기다린 후 브로커 전송
+         * Producer 메세지 전송에 허용된 최대 시간
+         * (delivery.timeout.ms >= linger.ms + request.timeout.ms)
+         * -> 초과 시 retry 를 하거나 Timeout Exception 발생
          * */
-        configs.setProperty(ProducerConfig.LINGER_MS_CONFIG, "50000");
+        configs.setProperty(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, "50000");
 
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(configs);
         sendPizzaMessage(kafkaProducer, TOPIC_NAME, -1, 1000, 0, 0, false);

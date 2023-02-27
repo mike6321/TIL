@@ -1,4 +1,4 @@
-package com.example.kafka.producer.idempotence;
+package com.example.kafka.producer.setting.idempotence;
 
 import com.example.kafka.producer.AbstractProducer;
 import org.apache.kafka.clients.producer.KafkaProducer;
