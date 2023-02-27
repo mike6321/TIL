@@ -1,4 +1,4 @@
-package com.example.kafka.producer.ack;
+package com.example.kafka.producer.batch_size;
 
 import com.example.kafka.producer.AbstractProducer;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -16,7 +16,7 @@ public class PizzaProducer extends AbstractProducer {
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        configs.setProperty(ProducerConfig.ACKS_CONFIG, "0");
+        configs.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, "50000");
 
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(configs);
         sendPizzaMessage(kafkaProducer, TOPIC_NAME, -1, 1000, 0, 0, false);

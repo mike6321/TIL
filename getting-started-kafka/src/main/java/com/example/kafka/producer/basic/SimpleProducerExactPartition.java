@@ -1,4 +1,4 @@
-package com.example.kafka.producer;
+package com.example.kafka.producer.basic;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -9,7 +9,7 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import java.util.Properties;
 
 @Slf4j
-public class SimpleProducer {
+public class SimpleProducerExactPartition {
 
     private final static String TOPIC_NAME = "test";
     private final static String BOOTSTRAP_SERVERS = "my-kafka:9092";
@@ -22,10 +22,10 @@ public class SimpleProducer {
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(configs);
 
-        String messageValue = "testMessage";
-        ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC_NAME, messageValue);
-        producer.send(record);
-        log.info("{}", record);
+        int partitionNo = 0;
+        ProducerRecord<String, String> record01 = new ProducerRecord<>(TOPIC_NAME, partitionNo,  "Pangyo", "Pangyo");
+        producer.send(record01);
+        log.info("{}", record01);
         producer.flush();
         producer.close();
     }
