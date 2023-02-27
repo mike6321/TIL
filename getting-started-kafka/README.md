@@ -328,3 +328,11 @@ isolation.level
 
 * 트랜잭션 프로듀서가 레코드를 트랜잭션 단위로 보낼경우 사용
 
+------
+
+## Dump Log 보기
+
+```sh
+bin/kafka-dump-log.sh --deep-iteration --files data/topic02-0/00000000000000000000.log --print-data-log
+```
+
