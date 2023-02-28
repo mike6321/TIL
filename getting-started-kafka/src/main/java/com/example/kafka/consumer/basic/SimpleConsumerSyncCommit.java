@@ -1,4 +1,4 @@
-package com.example.kafka.consumer;
+package com.example.kafka.consumer.basic;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -10,11 +10,10 @@ import java.time.Duration;
 import java.util.List;
 
 @Slf4j
-public class SimpleConsumerAutoCommit extends AbstractConsumer {
+public class SimpleConsumerSyncCommit extends AbstractConsumer {
 
     public static void main(String[] args) {
-        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, Boolean.TRUE);
-        configs.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, 60000);
+        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, Boolean.FALSE);
 
         consumer = new KafkaConsumer<>(configs);
         consumer.subscribe(List.of(TOPIC_NAME));
@@ -24,6 +23,7 @@ public class SimpleConsumerAutoCommit extends AbstractConsumer {
             for (ConsumerRecord<String, String> record : records) {
                 log.info("record:{}", record);
             }
+            consumer.commitSync();
         }
     }
 
