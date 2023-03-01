@@ -26,6 +26,7 @@
         <module>concurrency-issue</module>
         <module>magicmoja</module>
         <module>getting-started-kafka</module>
+        <module>getting-started-kafka-consumer</module>
     </modules>
 
     <properties>

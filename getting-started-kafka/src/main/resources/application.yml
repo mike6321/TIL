@@ -1,0 +1,15 @@
+server:
+  port: 1000
+
+spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+    topic1: topic01
+    topic2: topic02
+    topic3: topic03
+    topic4: topic04
+
+logging:
+  level:
+    root: info
