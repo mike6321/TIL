@@ -24,7 +24,7 @@ public class SimpleConsumerShutdownHook extends AbstractConsumer {
             while (true) {
                 ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
                 for (ConsumerRecord<String, String> record : records) {
-                    log.info("{}", record);
+                    log.info("record key: {}, record value: {}, partition: {}, record offset: {}", record.key(), record.value(), record.partition(), record.offset());
                 }
                 consumer.commitSync();
             }
@@ -37,11 +37,16 @@ public class SimpleConsumerShutdownHook extends AbstractConsumer {
     }
 
     static class ShutdownThread extends Thread {
-
         @Override
         public void run() {
             log.info("Shutdown hook");
             consumer.wakeup();
+
+            try {
+                Thread.currentThread().join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
     }

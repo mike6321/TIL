@@ -336,3 +336,26 @@ isolation.level
 bin/kafka-dump-log.sh --deep-iteration --files data/topic02-0/00000000000000000000.log --print-data-log
 ```
 
+------
+
+## __consumer_offsets 토픽을 읽기
+
+* __consumer_offsets : 로그에 있는 offset이 아닌 Consumer가 데이터를 읽는 당시의 offsets 이다. (로그에 기록하기 전)
+
+<img width="1000" alt="image" src="https://user-images.githubusercontent.com/33277588/222111257-0f6cbc95-ac7b-4681-b832-f984dc858f78.png">
+
+```sh
+bin/kafka-console-consumer.sh --consumer.config ./consumer_temp.config \
+--bootstrap-server my-kafka:9092 --topic __consumer_offsets \
+```
+
+* Producer 생성
+
+  ```sh
+  bin/kafka-console-producer.sh --bootstrap-server my-kafka:9092 --topic topic01
+  ```
+
+* 컨슈머 실행 후 로그확인
+
+  <img width="1000" alt="image" src="https://user-images.githubusercontent.com/33277588/222113669-aeb67cdc-0093-4f1a-a91d-c6d1daf5fe9e.png">
+
