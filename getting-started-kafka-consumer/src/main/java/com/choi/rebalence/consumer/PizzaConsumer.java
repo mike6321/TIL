@@ -20,6 +20,8 @@ public class PizzaConsumer extends AbstractConsumer {
         Runtime.getRuntime().addShutdownHook(new ShutdownThread());
         configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
         configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "group-01-static");
+        configs.put(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG, "3");
 
         consumer = new KafkaConsumer<>(configs);
         consumer.subscribe(Arrays.asList(TOPIC_NAME));

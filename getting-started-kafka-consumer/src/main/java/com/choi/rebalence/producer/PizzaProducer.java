@@ -25,7 +25,7 @@ public class PizzaProducer {
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(configs);
-        sendPizzaMessage(kafkaProducer, topicName, -1, 500, 1000, 100, true);
+        sendPizzaMessage(kafkaProducer, topicName, -1, 5000, 1000, 100, true);
     }
 
     public static void sendPizzaMessage(KafkaProducer<String, String> kafkaProducer,
