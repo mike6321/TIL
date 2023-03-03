@@ -1,4 +1,4 @@
-package com.choi.rebalence.consumer;
+package com.choi.rebalence;
 
 import com.choi.AbstractConsumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -12,9 +12,13 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 import java.util.Arrays;
 
-public class PizzaConsumer extends AbstractConsumer {
+/**
+ * static group membership
+ * bin/kafka-consumer-groups.sh --bootstrap-server my-kafka:9092 --describe --group group-01-static
+ * */
+public class StaticGroupMembershipConsumer extends AbstractConsumer {
 
-    public static final Logger log = LoggerFactory.getLogger(PizzaConsumer.class.getName());
+    public static final Logger log = LoggerFactory.getLogger(StaticGroupMembershipConsumer.class.getName());
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new ShutdownThread());

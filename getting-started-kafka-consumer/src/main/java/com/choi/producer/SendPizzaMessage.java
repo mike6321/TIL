@@ -1,4 +1,4 @@
-package com.choi.rebalence.producer;
+package com.choi.producer;
 
 import com.github.javafaker.Faker;
 import org.apache.kafka.clients.producer.Callback;
