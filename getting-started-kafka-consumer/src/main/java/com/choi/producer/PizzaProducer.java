@@ -17,7 +17,7 @@ public class PizzaProducer {
     private final static String BOOTSTRAP_SERVERS = "my-kafka:9092";
 
     public static void main(String[] args) {
-        String topicName = "topic01";
+        String topicName = "topic-p3-t2";
 
         Properties configs = new Properties();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
