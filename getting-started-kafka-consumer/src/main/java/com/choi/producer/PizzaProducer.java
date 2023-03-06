@@ -17,7 +17,7 @@ public class PizzaProducer {
     private final static String BOOTSTRAP_SERVERS = "my-kafka:9092";
 
     public static void main(String[] args) {
-        String topicName = "commit-topic";
+        String topicName = "explicit-partition-topic";
 
         Properties configs = new Properties();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
@@ -25,7 +25,7 @@ public class PizzaProducer {
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(configs);
-        sendPizzaMessage(kafkaProducer, topicName, -1, 1000, 1000, 100, true);
+        sendPizzaMessage(kafkaProducer, topicName, -1, 5000, 1000, 100, true);
     }
 
     public static void sendPizzaMessage(KafkaProducer<String, String> kafkaProducer,
