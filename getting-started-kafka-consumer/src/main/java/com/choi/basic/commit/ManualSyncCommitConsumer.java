@@ -1,4 +1,4 @@
-package com.choi.commit;
+package com.choi.basic.commit;
 
 import com.choi.AbstractConsumer;
 import org.apache.kafka.clients.consumer.*;

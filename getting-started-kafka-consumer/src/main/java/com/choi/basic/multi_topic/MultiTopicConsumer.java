@@ -1,4 +1,4 @@
-package com.choi.setting;
+package com.choi.basic.multi_topic;
 
 import com.choi.AbstractConsumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -12,32 +12,23 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 import java.util.Arrays;
 
-/**
- * AUTO_OFFSET_RESET_CONFIG earliest 는
- * __consumer_offsets 에 있는 정보를 기반으로 메세지를 가져오기 때문에 earliest 로 설정하여도
- * 0번 오프셋 부터 읽어 들이지 않는다.
- *
- * -> __consumer_offsets 에 정보가 없을 때 유효한 설정
- * */
-public class SimpleConsumerAutoOffsetReset extends AbstractConsumer {
+public class MultiTopicConsumer extends AbstractConsumer {
 
-    public static final Logger log = LoggerFactory.getLogger(SimpleConsumerAutoOffsetReset.class.getName());
+    public static final Logger log = LoggerFactory.getLogger(MultiTopicConsumer.class.getName());
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new ShutdownThread());
-        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
-        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "group-m-topic");
 
         consumer = new KafkaConsumer<>(configs);
-        consumer.subscribe(Arrays.asList(TOPIC_NAME));
+        consumer.subscribe(Arrays.asList("topic-p3-t1", "topic-p3-t2"));
 
         try {
             while (true) {
                 ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
                 for (ConsumerRecord<String, String> record : records) {
-                    log.info("record key: {}, record value: {}, partition: {}, record offset: {}", record.key(), record.value(), record.partition(), record.offset());
+                    log.info("topic:{}, record key: {}, partition: {}, record offset: {}, record value: {}", record.topic(), record.key(), record.partition(), record.offset(), record.value());
                 }
-                consumer.commitSync();
             }
         } catch (WakeupException e) {
             log.warn("Wakeup consumer");

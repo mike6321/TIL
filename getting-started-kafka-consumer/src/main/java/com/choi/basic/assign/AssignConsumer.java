@@ -1,4 +1,4 @@
-package com.choi.assign;
+package com.choi.basic.assign;
 
 import com.choi.AbstractConsumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;

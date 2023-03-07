@@ -1,4 +1,4 @@
-package com.choi.heartbeat;
+package com.choi.basic.rebalence;
 
 import com.choi.AbstractConsumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -12,16 +12,20 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 import java.util.Arrays;
 
-public class HeartBeatConsumer extends AbstractConsumer {
+/**
+ * static group membership
+ * bin/kafka-consumer-groups.sh --bootstrap-server my-kafka:9092 --describe --group group-01-static
+ * */
+public class StaticGroupMembershipConsumer extends AbstractConsumer {
 
-    public static final Logger log = LoggerFactory.getLogger(HeartBeatConsumer.class.getName());
+    public static final Logger log = LoggerFactory.getLogger(StaticGroupMembershipConsumer.class.getName());
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new ShutdownThread());
-        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "simple-group");
-//        configs.put(ConsumerConfig.HEARTBEAT_INTERVAL_MS_CONFIG, "5000");
-//        configs.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, "90000");
-//        configs.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, "600000");
+        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
+        configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "group-01-static");
+        configs.put(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG, "3");
 
         consumer = new KafkaConsumer<>(configs);
         consumer.subscribe(Arrays.asList(TOPIC_NAME));

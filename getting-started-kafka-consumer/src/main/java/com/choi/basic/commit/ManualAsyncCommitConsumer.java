@@ -1,40 +1,32 @@
-package com.choi.commit;
+package com.choi.basic.commit;
 
 import com.choi.AbstractConsumer;
-import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.*;
+import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.errors.WakeupException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Map;
 
-/**
- * wakeUp 하지 않고 종료
- * 강제 종료
- * 612 offset 까지 poll
- *
- * consumer 실행 시 605 부터 poll
- * [605 ~ 612] duplicate read
- * */
-public class DuplicateReadCommitConsumer extends AbstractConsumer {
+public class ManualAsyncCommitConsumer extends AbstractConsumer {
 
-    public static final Logger log = LoggerFactory.getLogger(DuplicateReadCommitConsumer.class.getName());
+    public static final Logger log = LoggerFactory.getLogger(ManualAsyncCommitConsumer.class.getName());
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new ShutdownThread());
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, "group-commit-topic");
+        configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
 
         consumer = new KafkaConsumer<>(configs);
         consumer.subscribe(Arrays.asList("commit-topic"));
 
-        pollAutoCommit(consumer);
+        pollCommitAsync(consumer);
     }
 
-    private static void pollAutoCommit(KafkaConsumer<String, String> consumer) {
+    private static void pollCommitAsync(KafkaConsumer<String, String> consumer) {
         int loopCount = 0;
         try {
             while (true) {
@@ -43,17 +35,23 @@ public class DuplicateReadCommitConsumer extends AbstractConsumer {
                 for (ConsumerRecord<String, String> record : records) {
                     log.info("record key: {}, partition: {}, record offset: {}, record value: {}", record.key(), record.partition(), record.offset(), record.value());
                 }
-                try {
-                    log.info("main thread is sleeping {}ms during while loop", 10000);
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                consumer.commitAsync(new OffsetCommitCallback() {
+                    @Override
+                    public void onComplete(Map<TopicPartition, OffsetAndMetadata> map, Exception e) {
+                        if (e != null) {
+                            log.error("offsets {} is not completed, error: {}", map, e);
+                        }
+                    }
+                });
             }
         } catch (WakeupException e) {
             log.warn("Wakeup consumer");
+        } catch (Exception e) {
+            log.error(e.getMessage());
         } finally {
-            log.warn("Consumer close");
+            log.info("### commit sync before closing...");
+            consumer.commitSync();
+            log.info("Consumer close");
             consumer.close();
         }
     }
@@ -62,7 +60,7 @@ public class DuplicateReadCommitConsumer extends AbstractConsumer {
         @Override
         public void run() {
             log.info("Shutdown hook");
-//            consumer.wakeup();
+            consumer.wakeup();
 
             try {
                 Thread.currentThread().join();

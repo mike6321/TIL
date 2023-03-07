@@ -1,4 +1,4 @@
-package com.choi.producer;
+package com.choi.basic.producer;
 
 import com.github.javafaker.Faker;
 import org.apache.kafka.clients.producer.*;
@@ -17,7 +17,7 @@ public class PizzaProducer {
     private final static String BOOTSTRAP_SERVERS = "my-kafka:9092";
 
     public static void main(String[] args) {
-        String topicName = "explicit-partition-topic";
+        String topicName = "test-topic";
 
         Properties configs = new Properties();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);

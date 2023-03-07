@@ -1,4 +1,4 @@
-package com.choi.producer;
+package com.choi.basic.producer;
 
 import com.github.javafaker.Faker;
 
