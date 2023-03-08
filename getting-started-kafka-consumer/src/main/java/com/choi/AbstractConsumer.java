@@ -9,7 +9,7 @@ import java.util.Properties;
 public abstract class AbstractConsumer {
 
     protected final static String TOPIC_NAME = "topic01";
-    protected final static String BOOTSTRAP_SERVERS = "my-kafka:9092";
+    protected final static String BOOTSTRAP_SERVERS = "127.0.0.1:9092";
     protected final static String GROUP_ID = "test-group";
     protected final static Properties configs = new Properties();
     protected static KafkaConsumer<String, String> consumer;

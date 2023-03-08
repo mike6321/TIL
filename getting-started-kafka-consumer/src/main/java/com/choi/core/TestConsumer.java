@@ -18,7 +18,7 @@ public class TestConsumer extends AbstractConsumer  {
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new TestConsumer.ShutdownThread());
-        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "test-topic");
+        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "test-topic-group");
 
         consumer = new KafkaConsumer<>(configs);
         consumer.subscribe(Arrays.asList("test-topic"));
