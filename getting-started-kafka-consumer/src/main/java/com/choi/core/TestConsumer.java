@@ -12,13 +12,16 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 import java.util.Arrays;
 
+/**
+ * bin/kafka-topics.sh --bootstrap-server my:9092 --delete --topic test-topic
+ * */
 public class TestConsumer extends AbstractConsumer  {
 
     public static final Logger log = LoggerFactory.getLogger(TestConsumer.class.getName());
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new TestConsumer.ShutdownThread());
-        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "test-topic-group");
+        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "test-topic-group-01");
 
         consumer = new KafkaConsumer<>(configs);
         consumer.subscribe(Arrays.asList("test-topic"));
