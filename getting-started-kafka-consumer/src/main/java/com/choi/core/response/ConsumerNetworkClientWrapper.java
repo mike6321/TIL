@@ -1,21 +1,30 @@
 package com.choi.core.response;
 
+import org.apache.kafka.clients.ClientRequest;
 import org.apache.kafka.clients.ClientResponse;
 import org.apache.kafka.clients.KafkaClient;
 import org.apache.kafka.clients.RequestCompletionHandler;
 import org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient;
 import org.apache.kafka.clients.consumer.internals.RequestFuture;
+import org.apache.kafka.common.Node;
 import org.apache.kafka.common.utils.Timer;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ConcurrentMap;
 
 public class ConsumerNetworkClientWrapper {
 
     private final KafkaClient client;
     private final ConcurrentLinkedQueue<RequestFutureCompletionHandler> pendingCompletion = new ConcurrentLinkedQueue<>();
+    private final int maxPollTimeoutMs;
+    private final ConcurrentMap<Node, ConcurrentLinkedQueue<ClientRequest>> unsent = new ConcurrentHashMap<>();;
 
-    public ConsumerNetworkClientWrapper(KafkaClient client) {
+
+    public ConsumerNetworkClientWrapper(KafkaClient client, int maxPollTimeoutMs) {
         this.client = client;
+        this.maxPollTimeoutMs = maxPollTimeoutMs;
     }
 
     public class RequestFutureCompletionHandler implements RequestCompletionHandler {
@@ -75,6 +84,21 @@ public class ConsumerNetworkClientWrapper {
         // wakeup the client in case it is blocking in poll for this future's completion
         if (completedRequestsFired)
             client.wakeup();
+    }
+
+    /**
+     * @see ConsumerNetworkClient#trySend(long)
+     * unsent 에 저장된 정보 client 전송
+     * */
+    long trySend(long now) {
+        long pollDelayMs = maxPollTimeoutMs;
+        for (Map.Entry<Node, ConcurrentLinkedQueue<ClientRequest>> entry : unsent.entrySet()) {
+            if (client.ready(entry.getKey(), now)) {
+                client.send(entry.getValue().poll(), now);
+            }
+        }
+
+        return pollDelayMs;
     }
 
 }
