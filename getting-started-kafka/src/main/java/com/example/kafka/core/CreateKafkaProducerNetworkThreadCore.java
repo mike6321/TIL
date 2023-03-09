@@ -31,7 +31,7 @@ public class CreateKafkaProducerNetworkThreadCore<K, V> {
                                          Serializer<V> valueSerializer,
                                          ProducerMetadata metadata,
                                          KafkaClient kafkaClient,
-                                         ProducerInterceptors<K, V> interceptors,
+                                         ProducerInterceptors<K, V> interceptors,SubscriptionState
                                          Time time) {
         this.producerConfig = config;
         this.clientId = config.getString(ProducerConfig.CLIENT_ID_CONFIG);

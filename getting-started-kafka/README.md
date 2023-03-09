@@ -346,7 +346,8 @@ bin/kafka-dump-log.sh --deep-iteration --files data/topic02-0/000000000000000000
 
 ```sh
 bin/kafka-console-consumer.sh --consumer.config ./consumer_temp.config \
---bootstrap-server my-kafka:9092 --topic __consumer_offsets \
+--bootstrap-server my:9092 --topic __consumer_offsets \
+--formatter "kafka.coordinator.group.GroupMetadataManager\$OffsetsMessageFormatter"
 ```
 
 * Producer 생성

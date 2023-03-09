@@ -13,7 +13,7 @@ import java.time.Duration;
 import java.util.Arrays;
 
 /**
- * bin/kafka-topics.sh --bootstrap-server my:9092 --delete --topic test-topic
+ * bin/kafka-topics.sh --bootstrap-server my:9092 --create --topic test-topic --partitions 3
  * */
 public class TestConsumer extends AbstractConsumer  {
 
