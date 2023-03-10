@@ -1,4 +1,4 @@
-package com.choi.core.rebalence.join;
+package com.choi.core.rebalence.b_join;
 
 import org.apache.kafka.clients.ClientResponse;
 import org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient;

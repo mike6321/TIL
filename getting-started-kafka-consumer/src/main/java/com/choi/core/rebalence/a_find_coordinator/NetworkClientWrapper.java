@@ -1,4 +1,4 @@
-package com.choi.core.rebalence.find_coordinator;
+package com.choi.core.rebalence.a_find_coordinator;
 
 import org.apache.kafka.clients.ClientResponse;
 import org.apache.kafka.common.utils.Time;
