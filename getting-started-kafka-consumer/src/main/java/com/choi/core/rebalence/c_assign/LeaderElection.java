@@ -15,6 +15,8 @@ public class LeaderElection {
      * 이후 요청
      * @see org.apache.kafka.clients.consumer.internals.AbstractCoordinator.JoinGroupResponseHandler#onJoinLeader(JoinGroupResponse)
      * @see AbstractCoordinator.JoinGroupResponseHandler#onJoinFollower()
+     *
+     * consumer-test-topic-group-01-1-94327f94-af8b-4d2b-b572-94d8f2f1332d
      * */
     public void handle(JoinGroupResponse joinResponse, RequestFuture<ByteBuffer> future) {
 
