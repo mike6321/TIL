@@ -21,10 +21,10 @@ public class TestConsumer extends AbstractConsumer  {
 
     public static void main(String[] args) {
         Runtime.getRuntime().addShutdownHook(new TestConsumer.ShutdownThread());
-        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "test-topic-group-01");
+        configs.put(ConsumerConfig.GROUP_ID_CONFIG, "test-topic-group-02");
 
         consumer = new KafkaConsumer<>(configs);
-        consumer.subscribe(Arrays.asList("test-topic1"));
+        consumer.subscribe(Arrays.asList("test-topic2"));
 
         try {
             while (true) {
