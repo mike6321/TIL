@@ -8,7 +8,7 @@ import org.apache.kafka.common.requests.OffsetCommitRequest;
 
 import java.util.Objects;
 
-public abstract class Handler<R, T>extends RequestFutureAdapter<ClientResponse, T> {
+public abstract class Handler<R, T> extends RequestFutureAdapter<ClientResponse, T> {
 
     final Generation sentGeneration;
     ClientResponse response;
