@@ -18,7 +18,7 @@ public class PizzaProducer {
     private final static String BOOTSTRAP_SERVERS = "my:9092";
 
     public static void main(String[] args) {
-        String topicName = "test-topic5";
+        String topicName = "test-topic1";
 
         Properties configs = new Properties();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
