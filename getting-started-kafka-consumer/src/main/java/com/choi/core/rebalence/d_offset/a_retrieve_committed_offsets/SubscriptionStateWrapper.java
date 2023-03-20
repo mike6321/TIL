@@ -1,4 +1,4 @@
-package com.choi.core.rebalence.d_offset.retrieve_committed_offsets;
+package com.choi.core.rebalence.d_offset.a_retrieve_committed_offsets;
 
 import org.apache.kafka.common.TopicPartition;
 

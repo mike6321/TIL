@@ -1,4 +1,4 @@
-package com.choi.core.rebalence.d_offset.retrieve_committed_offsets.c_retrieve_commited_offsets_from_coordinator;
+package com.choi.core.rebalence.d_offset.a_retrieve_committed_offsets.c_retrieve_commited_offsets_from_coordinator;
 
 import org.apache.kafka.clients.GroupRebalanceConfig;
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;

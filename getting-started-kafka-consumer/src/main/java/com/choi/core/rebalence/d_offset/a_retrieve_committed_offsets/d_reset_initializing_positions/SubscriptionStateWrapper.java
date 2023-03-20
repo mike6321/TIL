@@ -1,4 +1,4 @@
-package com.choi.core.rebalence.d_offset.retrieve_committed_offsets.d_reset_initializing_positions;
+package com.choi.core.rebalence.d_offset.a_retrieve_committed_offsets.d_reset_initializing_positions;
 
 import org.apache.kafka.clients.consumer.internals.SubscriptionState;
 

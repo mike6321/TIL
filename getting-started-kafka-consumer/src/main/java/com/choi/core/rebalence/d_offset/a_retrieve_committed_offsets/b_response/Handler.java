@@ -1,4 +1,4 @@
-package com.choi.core.rebalence.d_offset.retrieve_committed_offsets.b_response;
+package com.choi.core.rebalence.d_offset.a_retrieve_committed_offsets.b_response;
 
 import org.apache.kafka.clients.consumer.internals.RequestFuture;
 import org.apache.kafka.common.requests.OffsetFetchResponse;

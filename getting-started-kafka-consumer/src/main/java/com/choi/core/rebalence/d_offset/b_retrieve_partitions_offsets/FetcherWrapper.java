@@ -1,4 +1,4 @@
-package com.choi.core.rebalence.d_offset.retrieve_partitions_offsets;
+package com.choi.core.rebalence.d_offset.b_retrieve_partitions_offsets;
 
 import org.apache.kafka.clients.consumer.OffsetResetStrategy;
 import org.apache.kafka.clients.consumer.internals.Fetcher;
