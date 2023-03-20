@@ -1,8 +1,10 @@
 package com.choi.core.rebalence.d_offset.retrieve_partitions_offsets;
 
+import org.apache.kafka.clients.consumer.OffsetResetStrategy;
 import org.apache.kafka.clients.consumer.internals.Fetcher;
 import org.apache.kafka.clients.consumer.internals.RequestFuture;
 import org.apache.kafka.clients.consumer.internals.RequestFutureListener;
+import org.apache.kafka.clients.consumer.internals.SubscriptionState;
 import org.apache.kafka.common.Node;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.requests.ListOffsetsResponse;
@@ -29,7 +31,12 @@ public class FetcherWrapper<T> {
         future.addListener(new RequestFutureListener<T>() {
             @Override
             public void onSuccess(Object value) {
-                // 후처리
+                // RequestFuture 성공 시
+                // 응답으로 받은 오프셋 값은 SubscriptionState의 seek 메서드를 통해 파티션의 초기 오프셋으로 설정
+                /**
+                 * @see Fetcher#resetOffsetIfNeeded(TopicPartition, OffsetResetStrategy, Fetcher.ListOffsetData)
+                 * @see org.apache.kafka.clients.consumer.internals.SubscriptionState#maybeSeekUnvalidated(TopicPartition, SubscriptionState.FetchPosition, OffsetResetStrategy)
+                 * */
             }
 
             @Override
@@ -43,7 +50,9 @@ public class FetcherWrapper<T> {
      * @see Fetcher#sendListOffsetRequest(Node, Map, boolean)
      * */
     private RequestFuture<T> sendListOffsetRequest() {
-        handleListOffsetResponse();
+        // compose
+        RequestFuture<T> future = new RequestFuture<>();
+        handleListOffsetResponse(future);
         return new RequestFuture<>();
     }
 
@@ -54,8 +63,9 @@ public class FetcherWrapper<T> {
      * 파티션의 오프셋 정보 응답
      * 응답으로 받은 오프셋 값은 SubscriptionState의 seek 메서드를 통해 파티션의 초기 오프셋으로 설정
      * */
-    private void handleListOffsetResponse() {
-
+    private void handleListOffsetResponse(RequestFuture<T> future) {
+        // Listener 의 onSuccess 로 이동
+        future.complete(null); // ListOffsetResult
     }
 
 }

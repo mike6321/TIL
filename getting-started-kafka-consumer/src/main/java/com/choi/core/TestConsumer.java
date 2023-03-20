@@ -24,7 +24,7 @@ public class TestConsumer extends AbstractConsumer  {
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, "test-topic-group-01");
 
         consumer = new KafkaConsumer<>(configs);
-        consumer.subscribe(Arrays.asList("test-topic2"));
+        consumer.subscribe(Arrays.asList("test-topic1"));
 
         try {
             while (true) {
