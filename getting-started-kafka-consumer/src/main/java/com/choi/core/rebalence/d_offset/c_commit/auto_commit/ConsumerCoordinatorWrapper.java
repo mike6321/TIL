@@ -7,6 +7,7 @@ import org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient;
 import org.apache.kafka.clients.consumer.internals.RequestFuture;
 import org.apache.kafka.common.Node;
 import org.apache.kafka.common.TopicPartition;
+import org.apache.kafka.common.requests.OffsetCommitResponse;
 import org.apache.kafka.common.utils.Timer;
 
 import java.util.Map;
@@ -42,6 +43,7 @@ public class ConsumerCoordinatorWrapper {
 
     /**
      * @see ConsumerCoordinator#sendOffsetCommitRequest(Map)
+     * @see ConsumerCoordinator.OffsetCommitResponseHandler#handle(OffsetCommitResponse, RequestFuture)
      * */
     RequestFuture<Void> sendOffsetCommitRequest(final Map<TopicPartition, OffsetAndMetadata> offsets) {
         return client.send(coordinator, null)
