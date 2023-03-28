@@ -27,6 +27,7 @@
         <module>magicmoja</module>
         <module>getting-started-kafka</module>
         <module>getting-started-kafka-consumer</module>
+        <module>coding-test</module>
     </modules>
 
     <properties>
