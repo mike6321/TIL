@@ -20,7 +20,7 @@ public class FlipSpecificCharacters {
                 nonAlphabetic.put(i, unit);
             }
         }
-        
+
         int length = input1.length();
         String[] result = new String[length];
 
