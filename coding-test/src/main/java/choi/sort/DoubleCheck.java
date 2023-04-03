@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+/**
+ * https://cote.inflearn.com/contest/10/problem/06-05
+ * */
 public class DoubleCheck {
 
     public static void main(String[] args) {

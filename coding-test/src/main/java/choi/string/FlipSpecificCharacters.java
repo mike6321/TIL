@@ -2,6 +2,9 @@ package choi.string;
 
 import java.util.*;
 
+/**
+ * https://cote.inflearn.com/contest/10/problem/01-05
+ * */
 public class FlipSpecificCharacters {
 
     public static void main(String[] args) {

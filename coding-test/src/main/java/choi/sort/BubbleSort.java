@@ -2,6 +2,9 @@ package choi.sort;
 
 import java.util.Scanner;
 
+/**
+ * https://cote.inflearn.com/contest/10/problem/06-02
+ * */
 public class BubbleSort {
 
     public static void main(String[] args) {

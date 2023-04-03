@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * https://cote.inflearn.com/contest/10/problem/06-06
+ * */
 public class Naughty {
 
     public static void main(String[] args) {

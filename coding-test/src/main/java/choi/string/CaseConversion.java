@@ -2,6 +2,9 @@ package choi.string;
 
 import java.util.Scanner;
 
+/**
+ * https://cote.inflearn.com/contest/10/problem/01-02
+ * */
 public class CaseConversion {
 
     public static void main(String[] args) {

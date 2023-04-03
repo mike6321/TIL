@@ -2,6 +2,9 @@ package choi.string;
 
 import java.util.Scanner;
 
+/**
+ * https://cote.inflearn.com/contest/10/problem/01-04
+ * */
 public class FlipTheWord {
 
     public static void main(String[] args) {

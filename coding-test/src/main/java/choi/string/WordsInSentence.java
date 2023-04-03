@@ -2,6 +2,9 @@ package choi.string;
 
 import java.util.Scanner;
 
+/**
+ * https://cote.inflearn.com/contest/10/problem/01-03
+ * */
 public class WordsInSentence {
 
     public static void main(String[] args) {

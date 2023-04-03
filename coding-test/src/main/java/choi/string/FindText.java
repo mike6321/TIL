@@ -3,6 +3,9 @@ package choi.string;
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * https://cote.inflearn.com/contest/10/problem/01-01
+ * */
 public class FindText {
 
     public static void main(String[] args) {

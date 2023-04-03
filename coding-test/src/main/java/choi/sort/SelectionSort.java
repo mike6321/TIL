@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * 오름차순 선택정렬
+ * https://cote.inflearn.com/contest/10/problem/06-01
  * */
 public class SelectionSort {
 
