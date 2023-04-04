@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * https://cote.inflearn.com/contest/10/problem/02-03
+ * */
 public class RockPaperScissors {
 
     public static void main(String[] args) {
