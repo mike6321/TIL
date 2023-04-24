@@ -1,5 +1,8 @@
 package choi.resursive;
 
+/**
+ * DFS tree
+ * */
 public class Problem10 {
 
     private Node root;
