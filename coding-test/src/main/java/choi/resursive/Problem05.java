@@ -3,6 +3,7 @@ package choi.resursive;
 import java.util.Objects;
 
 /**
+ * 이진트리순회 (DFS)
  * https://user-images.githubusercontent.com/33277588/230551541-62e98d1f-6004-4dd2-a6af-7401ddddaf74.png
  * */
 public class Problem05 {

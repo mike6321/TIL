@@ -1,5 +1,8 @@
 package choi.resursive;
 
+/**
+ * 재귀함수 (스택프레임)
+ * */
 public class Problem01 {
 
     public static void main(String[] args) {

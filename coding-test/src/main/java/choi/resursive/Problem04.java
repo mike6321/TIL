@@ -1,17 +1,23 @@
 package choi.resursive;
 
 /**
- * 피보나찌
+ * 피보나치 수열 (array, 재귀)
+ * https://user-images.githubusercontent.com/33277588/236823729-438df6c3-cea6-448a-9cc7-1955750c3064.png
  * */
 public class Problem04 {
 
     public static void main(String[] args) {
-        Problem04 problem04 = new Problem04();
-        int n = 45;
-        int[] fibo =  new int[n+1];
-        problem04.dfs(n, fibo);
+        int n = 10;
+        Problem04 problem = new Problem04();
+        problem.recursiveSolution02(n);
+    }
 
-        for (int i = 1; i < n; i++) {
+
+    private void recursiveSolution02(int n) {
+        int[] fibo =  new int[n+1];
+        dfs(n, fibo);
+
+        for (int i = 1; i < n+1; i++) {
             System.out.print(fibo[i] + " ");
         }
     }
@@ -20,11 +26,7 @@ public class Problem04 {
         if (fibo[n] != 0) {
             return fibo[n];
         }
-        if (n == 1) {
-            fibo[n] = 1;
-            return 1;
-        }
-        if (n == 2) {
+        if (n == 1 || n == 2) {
             fibo[n] = 1;
             return 1;
         }
