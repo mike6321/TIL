@@ -34,5 +34,6 @@ public class Problem06 {
             dfs(level+1);
         }
     }
+    
 
 }
