@@ -5,6 +5,8 @@ import java.util.Scanner;
 /**
  * 수열 추측하기
  * https://cote.inflearn.com/contest/10/problem/08-08
+ *
+4 16
  * */
 public class PredicatePermutation {
 

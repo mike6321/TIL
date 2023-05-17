@@ -5,6 +5,7 @@ import java.util.Scanner;
 /**
  * 조합의 경우의수 (메모이제이션)
  * https://cote.inflearn.com/contest/10/problem/08-07
+ * nCr = n-1Cr-1 + n-1Cr
  *
 5 3
 33 19
