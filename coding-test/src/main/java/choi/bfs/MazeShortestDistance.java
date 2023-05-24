@@ -54,7 +54,7 @@ public class MazeShortestDistance {
 
                 if (nx >= 1 && nx <= 7 && ny >= 1 && ny <= 7 && board[nx][ny] == 0) {
                     board[nx][ny] = 1;
-                    queue.add(new Point(nx, ny));
+                    queue.offer(new Point(nx, ny));
                     distance[nx][ny] = distance[poll.x][poll.y] + 1;
                 }
             }
