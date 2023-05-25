@@ -4,6 +4,17 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+/**
+ * 토마토 (BFS 활용)
+ * https://cote.inflearn.com/contest/10/problem/08-12
+ *
+6 4
+0 0 -1 0 0 0
+0 0 1 0 -1 0
+0 0 -1 0 0 0
+0 0 0 0 -1 1
+
+ * */
 public class Tomato {
 
     private static int[] dx = {-1, 0, 1, 0};
