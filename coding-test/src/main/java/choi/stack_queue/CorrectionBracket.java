@@ -3,6 +3,12 @@ package choi.stack_queue;
 import java.util.Scanner;
 import java.util.Stack;
 
+/**
+ * 올바른 괄호
+ * https://cote.inflearn.com/contest/10/problem/05-01
+ *
+ * (()(()))(()
+ * */
 public class CorrectionBracket {
 
     public static void main(String[] args) {
