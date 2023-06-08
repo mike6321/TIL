@@ -11,9 +11,16 @@ public class ProxyBookService implements BookService {
 
     @Override
     public void rent(Book book) {
-        System.out.println("**********************************************");
+        System.out.println("********************대여**************************");
         bookService.rent(book);
-        System.out.println("**********************************************");
+        System.out.println("********************대여**************************");
+    }
+
+    @Override
+    public void returnBook(Book book) {
+        System.out.println("********************반납**************************");
+        bookService.rent(book);
+        System.out.println("********************반납**************************");
     }
 
 }
