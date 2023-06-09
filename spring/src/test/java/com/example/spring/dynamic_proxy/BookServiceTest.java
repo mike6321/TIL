@@ -7,6 +7,9 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * InvocationHandler 는 인터페이스만 지원
+ * */
 class BookServiceTest {
 
     BookService bookService = (BookService) Proxy.newProxyInstance(
