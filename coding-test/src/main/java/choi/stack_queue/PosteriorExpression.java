@@ -3,6 +3,12 @@ package choi.stack_queue;
 import java.util.Scanner;
 import java.util.Stack;
 
+/**
+ * 후위식 연산(postfix)
+ * https://cote.inflearn.com/contest/10/problem/05-04
+ *
+ * 352+*9-
+ * */
 public class PosteriorExpression {
 
     public static void main(String[] args) {
