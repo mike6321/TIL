@@ -9,7 +9,7 @@ import java.util.Stack;
  *
  * ()(((()())(())()))(())
  * */
-public class IronRod {
+public class 쇠막대기 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -23,7 +23,7 @@ public class IronRod {
                 stack.pop();
                 if (str.charAt(i-1) == '(') {
                     result += stack.size();
-                } else {
+                } else { // 막대기의 끝
                     result++;
                 }
             }

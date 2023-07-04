@@ -6,8 +6,11 @@ import java.util.Scanner;
 
 /**
  * https://cote.inflearn.com/contest/10/problem/02-01
+ *
+6
+7 3 9 5 6 12
  * */
-public class PrintLargeNumber {
+public class 큰수출력하기 {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

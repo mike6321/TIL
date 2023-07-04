@@ -9,33 +9,26 @@ import java.util.Scanner;
 10
 1 0 1 1 1 0 0 1 1 0
  * */
-public class CalculatingScore {
+public class 점수계산 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int[] arr = new int[n];
-        int[] check = new int[n];
-
         for (int i = 0; i < n; i++) {
             arr[i] = scanner.nextInt();
         }
 
+        int result = 0;
+        int cnt = 0;
+
         for (int i = 0; i < n; i++) {
             if (arr[i] == 1) {
-                check[i] = arr[i];
+                cnt++;
+                result += cnt;
+            } else {
+                cnt = 0;
             }
-            if (i-1 < 0) {
-                continue;
-            }
-            if (arr[i-1] > 0 && arr[i] == 1) {
-                check[i] = check[i-1] + arr[i];
-            }
-        }
-
-        int result = 0;
-        for (int i = 0; i < n; i++) {
-            result += check[i];
         }
 
         System.out.println(result);

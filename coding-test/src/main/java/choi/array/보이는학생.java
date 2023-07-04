@@ -4,8 +4,11 @@ import java.util.Scanner;
 
 /**
  * https://cote.inflearn.com/contest/10/problem/02-02
+ *
+8
+130 135 148 140 145 150 150 153
  * */
-public class VisibleStudent {
+public class 보이는학생 {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

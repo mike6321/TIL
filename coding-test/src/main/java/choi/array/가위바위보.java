@@ -6,8 +6,12 @@ import java.util.Scanner;
 
 /**
  * https://cote.inflearn.com/contest/10/problem/02-03
+ *
+5
+2 3 3 1 3
+1 1 2 2 3
  * */
-public class RockPaperScissors {
+public class 가위바위보 {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

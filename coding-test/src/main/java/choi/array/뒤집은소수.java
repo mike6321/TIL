@@ -9,7 +9,7 @@ import java.util.Scanner;
 9
 32 55 62 20 250 370 200 30 100
  * */
-public class InvertedPrime {
+public class 뒤집은소수 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

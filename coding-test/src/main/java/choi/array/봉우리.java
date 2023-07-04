@@ -13,7 +13,7 @@ import java.util.Scanner;
 4 3 6 4 1
 8 7 3 5 2
  * */
-public class SummitOfMountain {
+public class 봉우리 {
 
     private static int[] dx = {-1, 0, 1, 0};
     private static int[] dy = {0, 1, 0, -1};

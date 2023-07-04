@@ -9,7 +9,7 @@ import java.util.Stack;
  *
  * (()(()))(()
  * */
-public class CorrectionBracket {
+public class 올바른괄호 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 소수(에라토스테네스 체)
  * https://cote.inflearn.com/contest/10/problem/02-05
  * */
-public class Decimal {
+public class 에라토스테네스체 {
 
     private static int[] check;
 

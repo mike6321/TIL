@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * https://cote.inflearn.com/contest/10/problem/06-06
  * */
-public class Naughty {
+public class 장난꾸러기 {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
