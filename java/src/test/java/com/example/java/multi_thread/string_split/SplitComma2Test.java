@@ -6,8 +6,8 @@ class SplitComma2Test {
 
     @Test
     void split_test() {
-        String lastName = getLastName("choi, junwoo", 3);
-        System.out.println("lastName = " + lastName);
+//        String lastName = getLastName("choi, junwoo", 3);
+//        System.out.println("lastName = " + lastName);
     }
 
     private String getLastName(String fullName, int index) {

@@ -1,8 +1,8 @@
 package com.example.java.annotaion_processor;
 
-import com.choi.Magic;
+//import com.choi.Magic;
 
-@Magic
+//@Magic
 public interface Moja {
 
     String pullOut();
