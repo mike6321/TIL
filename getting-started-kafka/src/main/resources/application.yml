@@ -1,15 +1,25 @@
-server:
-  port: 1000
-
 spring:
-  kafka:
-    consumer:
-      auto-offset-reset: earliest
-    topic1: topic01
-    topic2: topic02
-    topic3: topic03
-    topic4: topic04
-
+  jpa:
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #    open-in-view: false
+    #    open-in-view: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    generate-ddl: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/coupon_example?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Rownsdn91@
 logging:
   level:
-    root: info
+    #    root: DEBUG
+    org:
+      springframework:
+        transaction:
+          interceptor: TRACE
