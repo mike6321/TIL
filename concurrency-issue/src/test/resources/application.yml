@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;MVCC=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    hikari:
+      maximum-pool-size: 10
+  #    type: org.apache.commons.dbcp2.BasicDataSource
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: create-drop
+    output:
+      ansi:
+        enabled: always
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+#        use_sql_comments: true
+
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: trace

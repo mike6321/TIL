@@ -2,6 +2,7 @@ package hello.advanced.trace.v6.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
+@Getter
 @Table(name = "orders")
 public class Orders {
 

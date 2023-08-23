@@ -9,7 +9,7 @@ spring:
         show_sql: true
         format_sql: true
   datasource:
-    url: jdbc:mysql://localhost:3306/kakaopay_settlement?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/test_order?useUnicode=true&characterEncoding=utf8
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: Rownsdn91@
