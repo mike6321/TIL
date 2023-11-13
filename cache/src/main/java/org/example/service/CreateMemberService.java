@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -33,6 +34,12 @@ public class CreateMemberService {
     @Cacheable(cacheNames = {"account.members"})
     public List<Member> getAllMembers() {
         return memberRepository.findAll();
+    }
+
+    @Cacheable(cacheNames = "member", keyGenerator = "memberKeyGenerator")
+    public Optional<Member> getMember(QueryMemberCommand command) {
+        System.out.println("Query : getMember");
+        return memberRepository.findByUserCode(command.userCode());
     }
 
 }
