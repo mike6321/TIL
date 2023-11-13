@@ -18,11 +18,11 @@
     <description>spring</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>demo-familyman-prep</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.example</groupId>-->
+<!--            <artifactId>demo-familyman-prep</artifactId>-->
+<!--            <version>0.0.2-SNAPSHOT</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

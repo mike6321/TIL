@@ -1,0 +1,4 @@
+datasource:
+  member:
+    url: jdbc:h2:mem:testdb;DATABASE_TO_UPPER=FALSE
+    username: sa
