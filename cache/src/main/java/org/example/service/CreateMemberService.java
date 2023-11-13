@@ -5,6 +5,7 @@ import org.example.domain.Member;
 import org.example.domain.Password;
 import org.example.repository.MemberRepository;
 import org.example.repository.PasswordRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,6 +29,8 @@ public class CreateMemberService {
         return member;
     }
 
+
+    @Cacheable(cacheNames = {"account.members"})
     public List<Member> getAllMembers() {
         return memberRepository.findAll();
     }

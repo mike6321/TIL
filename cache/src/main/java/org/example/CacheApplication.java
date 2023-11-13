@@ -1,11 +1,9 @@
 package org.example;
 
-import org.example.repository.MemberRepository;
-import org.example.repository.PasswordRepository;
-import org.example.service.CreateMemberCommand;
 import org.example.service.CreateMemberService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.CacheManager;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
@@ -15,12 +13,23 @@ public class CacheApplication {
         ConfigurableApplicationContext context = SpringApplication.run(CacheApplication.class, args);
         CreateMemberService createMemberService = context.getBean("createMemberService", CreateMemberService.class);
 
-        createMemberService.create(new CreateMemberCommand("junwoo.choi", "qwer!@#$"));
+        System.out.println("############################# start #############################");
 
-        context.getBean("memberRepository", MemberRepository.class).findAll()
-                .forEach(System.out::println);
-        context.getBean("passwordRepository", PasswordRepository.class).findAll()
-                .forEach(System.out::println);
+        createMemberService.getAllMembers();
+        createMemberService.getAllMembers();
+        createMemberService.getAllMembers();
+        System.out.println("##########################################################");
+
+        CacheManager cacheManager = context.getBean("cacheManager", CacheManager.class);
+        System.out.println("CacheManager implements class : " + cacheManager.getClass().getCanonicalName());
+
+        cacheManager.getCacheNames()
+                        .forEach(name -> System.out.println("cache name : " + name));
+
+
+        System.out.println("############################# end #############################");
+
+
     }
 
 }
