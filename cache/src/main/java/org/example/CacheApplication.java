@@ -4,6 +4,7 @@ import org.example.domain.Member;
 import org.example.service.CreateMemberCommand;
 import org.example.service.CreateMemberService;
 import org.example.service.QueryMemberCommand;
+import org.example.service.QueryMemberService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.Cache;
@@ -21,29 +22,29 @@ public class CacheApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(CacheApplication.class, args);
         CreateMemberService createMemberService = context.getBean("createMemberService", CreateMemberService.class);
+        QueryMemberService queryMemberService = context.getBean("queryMemberService", QueryMemberService.class);
         createMemberService.create(new CreateMemberCommand("junwoo.choi", "passwrodqwer!@#$"));
 
         System.out.println("############################# start #############################");
-        createMemberService.getMember(new QueryMemberCommand("junwoo.choi"));
-        createMemberService.getMember(new QueryMemberCommand("junwoo.choi"));
-        createMemberService.getMember(new QueryMemberCommand("junwoo.choi"));
-        createMemberService.getMember(new QueryMemberCommand("junwoo.choi"));
+        queryMemberService.getMember(new QueryMemberCommand("junwoo.choi"));
+        queryMemberService.getMember(new QueryMemberCommand("junwoo.choi"));
+        System.out.println("1");
+
+        queryMemberService.getMember(new QueryMemberCommand("not-fount-usercode"));
+        queryMemberService.getMember(new QueryMemberCommand("not-fount-usercode"));
+        System.out.println("2");
+
+        queryMemberService.getMember(new QueryMemberCommand(null));
+        queryMemberService.getMember(new QueryMemberCommand(null));
         System.out.println("##########################################################");
 
-//        createMemberService.getAllMembers();
-//        createMemberService.getAllMembers();
-//        createMemberService.getAllMembers();
-
         CacheManager cacheManager = context.getBean("cacheManager", CacheManager.class);
-        Cache cache = cacheManager.getCache("member");
+        Cache cache = cacheManager.getCache("members");
+        System.out.println(cache.get("member:user-code:junwoo.choi").get().toString());
 
-        ConcurrentMapCache concurrentMapCache = ConcurrentMapCache.class.cast(cache);
-        ConcurrentMap<SimpleKey, List<Member>> map = ConcurrentMap.class.cast(concurrentMapCache.getNativeCache());
-
-
-        System.out.println("Map Size : " + map.size());
-        map.entrySet()
-                .forEach(simpleKeyListEntry -> System.out.println(simpleKeyListEntry.getKey() + " : " + simpleKeyListEntry.getValue()));
+        cache = cacheManager.getCache("members:user-codes");
+        System.out.println(cache.get("member:user-code:junwoo.choi").get().toString());
+        
 
         System.out.println("############################# end #############################");
     }

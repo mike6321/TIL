@@ -24,7 +24,7 @@ public class MemberKeyGenerator implements KeyGenerator {
         String key = null;
         try {
             QueryMemberCommand command = QueryMemberCommand.class.cast(params[0]);
-            key = "member:user-code" + command.userCode();
+            key = "member:user-code:" + command.userCode();
         } catch (Throwable throwable) {
             key = Arrays.stream(params)
                     .map(Objects::toString)
