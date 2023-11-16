@@ -28,24 +28,21 @@ public class CacheApplication {
         System.out.println("############################# start #############################");
         queryMemberService.getMember(new QueryMemberCommand("junwoo.choi"));
         queryMemberService.getMember(new QueryMemberCommand("junwoo.choi"));
-        System.out.println("1");
-
-        queryMemberService.getMember(new QueryMemberCommand("not-fount-usercode"));
-        queryMemberService.getMember(new QueryMemberCommand("not-fount-usercode"));
-        System.out.println("2");
-
-        queryMemberService.getMember(new QueryMemberCommand(null));
-        queryMemberService.getMember(new QueryMemberCommand(null));
         System.out.println("##########################################################");
 
         CacheManager cacheManager = context.getBean("cacheManager", CacheManager.class);
+        System.out.println(cacheManager.getClass().getCanonicalName());
         Cache cache = cacheManager.getCache("members");
         System.out.println(cache.get("member:user-code:junwoo.choi").get().toString());
 
         cache = cacheManager.getCache("members:user-codes");
         System.out.println(cache.get("member:user-code:junwoo.choi").get().toString());
-        
+        System.out.println(cache.get("member:user-code:junwoo.choi").get().toString());
 
+
+        com.github.benmanes.caffeine.cache.Cache caffeineCache = (com.github.benmanes.caffeine.cache.Cache) cache.getNativeCache();
+        System.out.println(caffeineCache.estimatedSize());
+        System.out.println(caffeineCache.stats().toString());
         System.out.println("############################# end #############################");
     }
 
