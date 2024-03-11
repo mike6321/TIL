@@ -1,6 +1,6 @@
 package com.example.version.V_2_1.bean_overriding;
 
-import com.example.demofamilymanprep.FamilyMan;
+//import com.example.demofamilymanprep.FamilyMan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -18,23 +18,23 @@ public class App {
     @Bean
     public ApplicationRunner applicationRunner() {
         return new ApplicationRunner() {
-            @Autowired
-            FamilyMan familyMan;
+//            @Autowired
+//            FamilyMan familyMan;
 
             @Override
             public void run(ApplicationArguments args) {
                 System.out.println("****************");
-                System.out.println(familyMan.getName());
+//                System.out.println(familyMan.getName());
                 System.out.println("****************");
             }
         };
     }
 
-    @Bean
-    public FamilyMan familyMan() {
-        FamilyMan familyMan = new FamilyMan();
-        familyMan.setName("junwoo");
-        return familyMan;
-    }
+//    @Bean
+//    public FamilyMan familyMan() {
+//        FamilyMan familyMan = new FamilyMan();
+//        familyMan.setName("junwoo");
+//        return familyMan;
+//    }
 
 }
