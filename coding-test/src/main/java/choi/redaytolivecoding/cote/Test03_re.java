@@ -1,38 +1,36 @@
 package choi.redaytolivecoding.cote;
 
-public class Test03 {
-
-    private static final String DELIMITER = " ";
+public class Test03_re {
 
     public static void main(String[] args) {
         System.out.println(solution(2, "1A 2F 1C"));
         System.out.println(solution(1, ""));
         System.out.println(solution(22, "1A 3C 2B 20G 5A"));
     }
+
     public static int solution(int N, String S) {
-        if (S == null || S.isEmpty()) {
+        if (S.isEmpty()) {
             return N * 2;
         }
 
-        boolean[] isReserved = new boolean[N];
+        String[] target = S.split(" ");
         boolean[][] seats = new boolean[N][10];
-        String[] reserved = S.split(DELIMITER);
-        for (String seat : reserved) {
-            int row = Integer.parseInt(seat.substring(0, seat.length() - 1)) - 1;
-            char col = seat.charAt(seat.length() - 1);
-            int colIndex = col - 'A';
+        boolean[] isReserved = new boolean[N];
 
-            if (col > 'H') {
-                colIndex -= 1;
-            }
-            isReserved[row] = true;
-            seats[row][colIndex] = true;
+        for (String str : target) {
+            char col = str.charAt(str.length() - 1);
+            int rowIndex = Integer.parseInt(str.substring(0, str.length() - 1)) - 1;
+            int colIndex = col > 'H' ? col - 'A' - 1 : col - 'A';
+
+            seats[rowIndex][colIndex] = true;
+            isReserved[rowIndex] = true;
         }
 
-        int families = 0;
+
+        int total = 0;
         for (int i = 0; i < N; i++) {
             if (!isReserved[i]) {
-                families += 2;
+                total += 2;
                 continue;
             }
 
@@ -41,25 +39,34 @@ public class Test03 {
                 seats[i][2] = true;
                 seats[i][3] = true;
                 seats[i][4] = true;
-                families++;
+
+                total++;
             }
+
             if (!seats[i][5] && !seats[i][6] && !seats[i][7] && !seats[i][8]) {
                 seats[i][5] = true;
                 seats[i][6] = true;
                 seats[i][7] = true;
                 seats[i][8] = true;
-                families++;
+
+                total++;
             }
+
             if (!seats[i][3] && !seats[i][4] && !seats[i][5] && !seats[i][6]) {
                 seats[i][3] = true;
                 seats[i][4] = true;
                 seats[i][5] = true;
                 seats[i][6] = true;
-                families++;
+
+                total++;
             }
         }
 
-        return families;
+
+
+
+
+        return total;
     }
 
 
