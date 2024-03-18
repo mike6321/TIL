@@ -2,6 +2,11 @@ package choi.redaytolivecoding.string;
 
 import java.util.Scanner;
 
+/**
+ * KKHSSSSSSSE
+ *
+ * K2HS7E
+ * */
 public class k_문자열압축 {
 
     public static void main(String[] args) {

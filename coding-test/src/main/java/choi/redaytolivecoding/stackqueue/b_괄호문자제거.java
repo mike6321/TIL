@@ -3,6 +3,10 @@ package choi.redaytolivecoding.stackqueue;
 import java.util.Scanner;
 import java.util.Stack;
 
+/**
+ * (A(BC)D)EF(G(H)(IJ)K)LM(N)
+ * EFLM
+ * */
 public class b_괄호문자제거 {
 
     public static void main(String[] args) {

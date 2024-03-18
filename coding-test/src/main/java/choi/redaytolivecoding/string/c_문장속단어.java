@@ -2,6 +2,11 @@ package choi.redaytolivecoding.string;
 
 import java.util.Scanner;
 
+/**
+ * it is time to study
+ *
+ * study
+ * */
 public class c_문장속단어 {
 
     public static void main(String[] args){

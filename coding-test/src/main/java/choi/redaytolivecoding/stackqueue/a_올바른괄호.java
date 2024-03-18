@@ -4,6 +4,10 @@ import java.util.Scanner;
 import java.util.Stack;
 
 // https://cote.inflearn.com/contest/10/problem/05-01
+/**
+ * (()(()))(()
+ * NO
+ * */
 public class a_올바른괄호 {
 
     public static void main(String[] args) {

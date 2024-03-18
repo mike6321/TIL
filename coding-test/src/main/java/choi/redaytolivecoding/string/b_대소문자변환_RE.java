@@ -9,6 +9,8 @@ public class b_대소문자변환_RE {
         String input = in.next();
 
         StringBuilder result = new StringBuilder();
+        char test = 'z';
+        System.out.println((int) test);
         for (char c : input.toCharArray()) {
             /**
              * point : ascii

@@ -2,6 +2,11 @@ package choi.redaytolivecoding.string;
 
 import java.util.Scanner;
 
+/**
+ * a#b!GE*T@S
+ *
+ * S#T!EG*b@a
+ * */
 public class e_특정문자뒤집기 {
 
     public static void main(String[] args) {
