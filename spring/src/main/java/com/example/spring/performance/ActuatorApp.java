@@ -1,13 +1,13 @@
-package com.example.spring;
+package com.example.spring.performance;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class ActuatorApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ActuatorApp.class, args);
     }
 
 }
