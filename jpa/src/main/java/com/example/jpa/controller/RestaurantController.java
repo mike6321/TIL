@@ -29,6 +29,17 @@ public class RestaurantController {
         return restaurantService.createRestaurant(restaurantRequest);
     }
 
+    @GetMapping("{id}")
+    public RestaurantResponse getRestaurant(@PathVariable Long id) {
+        return restaurantService.getRestaurant(id);
+    }
+
+    @PutMapping("{id}")
+    public RestaurantResponse updateRestaurant(@PathVariable Long id) {
+        return restaurantService.updateRestaurant(id);
+    }
+
+
     @PostMapping("menu")
     public MenuResponse createMenu(@RequestBody MenuRequest menuRequest) {
         return menuService.createMenu(menuRequest);

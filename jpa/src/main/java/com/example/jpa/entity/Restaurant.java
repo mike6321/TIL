@@ -64,4 +64,7 @@ public class Restaurant {
         this.restaurantMoreInformation = restaurantMoreInformation;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }

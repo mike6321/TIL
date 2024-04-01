@@ -1,0 +1,17 @@
+### 조회
+GET http://localhost:8080/restaurant/1
+Accept: application/json
+
+### 생성
+POST http://localhost:8080/restaurant/
+Content-Type: application/json
+
+{
+  "name": "test",
+  "companyName": "name"
+}
+
+### 수정
+PUT http://localhost:8080/restaurant/1
+Content-Type: application/json
+

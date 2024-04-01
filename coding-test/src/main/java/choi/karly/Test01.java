@@ -9,15 +9,16 @@ public class Test01 {
         String input = br.readLine();
         String[] splitInput = input.split(" ");
 
-        int n = Integer.parseInt(splitInput[0]);
-        int m = Integer.parseInt(splitInput[1]);
+        int n = Integer.parseInt(splitInput[0]); // 피자 갯수
+        int m = Integer.parseInt(splitInput[1]); // 피자 한판 교환가능한 쿠폰 갯수
 
         int totalPizza = n;
 
         while(n >= m) {
             int pizzaOrderedWithCoupons = n / m;
             totalPizza += pizzaOrderedWithCoupons;
-            n = n % m + pizzaOrderedWithCoupons;
+            int divide = n % m; // 남은것
+            n = divide + pizzaOrderedWithCoupons;
         }
 
         System.out.println(totalPizza);
