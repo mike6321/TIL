@@ -7,7 +7,6 @@ public class g_회문문자열_RE {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String str = in.nextLine().toLowerCase();
-        char[] charArray = str.toCharArray();
         String result = "YES";
 
         int length = str.length();

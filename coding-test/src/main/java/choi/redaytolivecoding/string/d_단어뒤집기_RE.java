@@ -16,9 +16,7 @@ public class d_단어뒤집기_RE {
             int lt = 0;
             int rt = charArray.length - 1;
 
-            /**
-             * reverse 직접 구현
-             * */
+            // ready to live coding : lt++ rt-- 단어 뒤집기
             while (lt < rt) {
                 char temp = charArray[rt];
                 charArray[rt] = charArray[lt];
