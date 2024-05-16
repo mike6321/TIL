@@ -41,3 +41,9 @@ concurrency-issue/mvnw.cmd
 concurrency-issue/mvnw
 
 coding-test/src/main/java/choi/redaytolivecoding/bfs_dfs/.DS_Store
+
+*.bat
+
+webflux/gradlew
+
+webflux/gradle/wrapper/
