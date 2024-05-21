@@ -1,4 +1,4 @@
-package com.example.webflux;
+package com.example.basic;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
