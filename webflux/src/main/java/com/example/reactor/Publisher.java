@@ -20,4 +20,9 @@ public class Publisher {
                 .log();
     }
 
+    Mono<?> startErrorMono() {
+        return Mono.error(new RuntimeException("error!!!"))
+                .log();
+    }
+
 }
