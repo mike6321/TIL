@@ -1,0 +1,29 @@
+### 유저등록
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "junwoo",
+  "email": "rownsdn912@gmail.com"
+}
+
+### 유저전체조회
+GET http://localhost:8080/users
+Accept: application/json
+
+### 유저조회
+GET http://localhost:8080/users/1
+Accept: application/json
+
+### 유저삭제
+DELETE http://localhost:8080/users/3
+Accept: application/json
+
+### 유저수정
+PUT http://localhost:8080/users/4
+Content-Type: application/json
+
+{
+  "name": "junwoo2",
+  "email": "rownsdn913@gmail.com"
+}
