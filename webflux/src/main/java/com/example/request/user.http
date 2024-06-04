@@ -1,0 +1,30 @@
+
+### 유저생성
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "choi",
+  "email": "test@gmail.com"
+}
+
+### 전체 유저 조회
+GET http://localhost:8080/users
+Accept: application/json
+
+### 전체 유저 조회
+GET http://localhost:8080/users/1
+Accept: application/json
+
+### 유저수정
+PUT http://localhost:8080/users/1
+Content-Type: application/json
+
+{
+  "name": "choi2",
+  "email": "test2@gmail.com"
+}
+
+### 유저삭제
+DELETE http://localhost:8080/users/2
+Content-Type: application/json

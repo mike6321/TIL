@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import static java.util.Objects.isNull;
 
+@Deprecated
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 

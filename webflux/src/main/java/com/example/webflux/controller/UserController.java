@@ -26,7 +26,9 @@ public class UserController {
     @GetMapping
     public Flux<UserResponse> findAllUsers() {
         return userService.findAll()
-                .map(UserResponse::of);
+                .map(user -> {
+                    return UserResponse.of(user);
+                });
     }
 
     @GetMapping("/{id}")
