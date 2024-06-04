@@ -29,6 +29,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'io.projectreactor:reactor-core'
+    runtimeOnly 'io.netty:netty-resolver-dns-native-macos:4.1.110.Final'
     testImplementation 'io.projectreactor:reactor-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
