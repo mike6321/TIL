@@ -16,15 +16,18 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
-public class User {
+@Table(name = "posts")
+public class Post {
 
     @Id
     private Long id;
 
-    private String name;
+    @Column("user_id")
+    private Long userId;
 
-    private String email;
+    private String title;
+
+    private String content;
 
     @Column("created_at")
     @CreatedDate
@@ -34,14 +37,11 @@ public class User {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
-//    private final AtomicLong sequence = new AtomicLong(1L);
-
-    public static User createUser(String name, String email) {
-        return User.builder()
-                .name(name)
-                .email(email)
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
+    public static Post createPost(Long userId, String title, String content) {
+        return Post.builder()
+                .userId(userId)
+                .title(title)
+                .content(content)
                 .build();
     }
 

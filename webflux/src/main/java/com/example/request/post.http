@@ -1,0 +1,22 @@
+
+### 포스트 생성
+POST http://localhost:8080/v2/posts
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "title": "test",
+  "content": "안녕"
+}
+
+### 전체 포스트 조회
+GET http://localhost:8080/v2/posts
+Accept: application/json
+
+### 특정 포스트 조회
+GET http://localhost:8080/v2/posts/1
+Accept: application/json
+
+### 포스트 삭제
+DELETE http://localhost:8080/v2/posts/1
+Content-Type: application/json
