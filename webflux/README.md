@@ -1,3 +1,5 @@
+# MySQL
+
 ### Docker
 
 ```sh
@@ -49,6 +51,21 @@ create table posts
 
 ```sql
 create index idx_user_id on posts (user_id);
+```
 
+# Redis
+
+### Docker
+
+```sh
+docker pull redis:6.2
+```
+
+```sh
+docker run -it -p 6379:6379 redis:6.2
+```
+
+```sh
+docker exec -it 41b26f9a2aee redis-cli
 ```
 
