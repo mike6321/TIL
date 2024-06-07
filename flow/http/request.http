@@ -1,0 +1,5 @@
+### wait queue
+POST http://localhost:9010/api/v1/queue?user_id=17
+Content-Type: application/json
+
+{}
