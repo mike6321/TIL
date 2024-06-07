@@ -53,3 +53,13 @@ mvc/gradle/wrapper/
 mvc/gradlew
 
 .DS_Store
+
+jmeter.log
+
+website/gradlew
+
+website/gradle/wrapper/
+
+flow/gradlew
+
+flow/gradle/wrapper/
