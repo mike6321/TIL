@@ -63,3 +63,11 @@ website/gradle/wrapper/
 flow/gradlew
 
 flow/gradle/wrapper/
+
+demo/gradle/wrapper/
+
+demo/gradlew
+
+test/gradle/wrapper/
+
+test/gradlew
