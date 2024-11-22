@@ -75,3 +75,7 @@ test/gradlew
 design-pattern/gradlew
 
 design-pattern/gradle/wrapper/
+
+innerclassbean/gradlew
+
+innerclassbean/gradle/wrapper/
