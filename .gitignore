@@ -71,3 +71,7 @@ demo/gradlew
 test/gradle/wrapper/
 
 test/gradlew
+
+design-pattern/gradlew
+
+design-pattern/gradle/wrapper/
