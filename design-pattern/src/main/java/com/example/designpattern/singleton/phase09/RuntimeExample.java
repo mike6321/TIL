@@ -1,7 +1,5 @@
 package com.example.designpattern.singleton.phase09;
 
-import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class RuntimeExample {
