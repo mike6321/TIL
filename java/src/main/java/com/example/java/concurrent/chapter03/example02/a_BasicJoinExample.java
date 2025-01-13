@@ -19,9 +19,7 @@ public class a_BasicJoinExample {
         System.out.println("메인 스레드가 다른 스레드의 완료를 기다립니다.");
 
         try {
-
             thread.join();
-
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
