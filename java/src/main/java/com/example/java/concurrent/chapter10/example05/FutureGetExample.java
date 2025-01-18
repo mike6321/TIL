@@ -27,11 +27,16 @@ public class FutureGetExample {
         ExecutorService executorService = Executors.newFixedThreadPool(1);
         Callable<Integer> callableTask = () -> {
             log.info("비동기 작업 요청 후 메인 스레드 작업 수행 중...");
-            Thread.sleep(2000l);
+            Thread.sleep(2000);
             return 40;
         };
 
         Future<Integer> future = executorService.submit(callableTask);
+
+        while (!future.isDone()) {
+            log.info("비동기 작업이 완료되지 않았습니다.");
+            Thread.sleep(500);
+        }
 
         Integer result = future.get();
         log.info("비동기 작업 결과: {}", result);
