@@ -1,4 +1,4 @@
-package com.example.java.concurrent.chapter04;
+package com.example.java.concurrent.chapter04.example01;
 
 import lombok.extern.slf4j.Slf4j;
 
