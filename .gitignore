@@ -83,3 +83,11 @@ innerclassbean/gradle/wrapper/
 *.bin
 
 *.obj
+
+redis-example/gradle/wrapper/
+
+spring-example/gradle/wrapper/
+
+spring-example/gradlew
+
+redis-example/
