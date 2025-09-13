@@ -91,3 +91,7 @@ spring-example/gradle/wrapper/
 spring-example/gradlew
 
 redis-example/
+
+refactoring/gradle/wrapper/
+
+refactoring/gradlew
