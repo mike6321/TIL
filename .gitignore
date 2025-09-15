@@ -95,3 +95,11 @@ redis-example/
 refactoring/gradle/wrapper/
 
 refactoring/gradlew
+
+refactoring/.gradle/8.14/fileHashes/
+
+refactoring/.gradle/8.14/checksums/
+
+refactoring/.gradle/buildOutputCleanup/
+
+refactoring/.gradle/
